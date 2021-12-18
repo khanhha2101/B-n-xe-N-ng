@@ -31,7 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="w3layouts-main">
 	<h2>Dang Nhap</h2>
 
-<!-- 	<?php 
+ 	<?php 
 
 		$message = Session::get('message');
 		if($message){
@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			Session::put('message', null);
 		}
 
-	?> -->
+	?> 
 
 		<form action="{{URL::to('/dashboard')}}" method="post">
 			{{ csrf_field() }}
