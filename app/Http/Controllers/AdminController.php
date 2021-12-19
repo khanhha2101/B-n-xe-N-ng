@@ -49,11 +49,5 @@ class AdminController extends Controller
         return Redirect::to('/admin');
     }
     
-    //quan ly ban doc
-    public function qlbandoc_show(){
-
-    	return view('admin.quanlybandoc');
-    }
-
-
+ 
 }

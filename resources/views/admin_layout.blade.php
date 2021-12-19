@@ -96,10 +96,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
                 
                 <li class="sub-menu">
-                    <a class="active" href="{{URL::to('/qlbandoc-show')}}">
-                        <i class="fa fa-book"></i>
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i>
                         <span>Quản lý bạn đọc</span>
                     </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/qlbandoc-add')}}">Thêm bạn đọc</a></li>
+                        <li><a href="{{URL::to('/qlbandoc-show')}}">Quản lý bạn đọc</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="fontawesome.html">

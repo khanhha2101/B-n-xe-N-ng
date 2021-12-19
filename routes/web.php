@@ -19,6 +19,8 @@ Route::get('/', function () {
 Route::get('/admin', 'AdminController@index'); //dangnhap
 Route::post('/dashboard','AdminController@dashboard'); //dashboard
 Route::get('/dashboard-show','AdminController@dashboard_show'); //dashboard
-Route::get('/logout', 'AdminController@logout'); //dang xuat
+Route::get('/logout', 'AdminController@logout'); //dang 
+
 //quản lý bạn đọc
-Route::get('/qlbandoc-show', 'AdminController@qlbandoc_show');
+Route::get('/qlbandoc-show', 'BanDocController@danhSachBanDoc');
+Route::get('/qlbandoc-add', 'BanDocController@themBanDoc');
