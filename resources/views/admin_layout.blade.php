@@ -101,8 +101,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý bạn đọc</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{URL::to('/qlbandoc-add')}}">Thêm bạn đọc</a></li>
-                        <li><a href="{{URL::to('/qlbandoc-show')}}">Quản lý bạn đọc</a></li>
+                        <li><a href="{{URL::to('/thembandoc-show')}}">Thêm bạn đọc</a></li>
+                        <li><a href="{{URL::to('/listbandoc-show')}}">Quản lý bạn đọc</a></li>
                     </ul>
                 </li>
                 <li>

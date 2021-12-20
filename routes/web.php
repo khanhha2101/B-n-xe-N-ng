@@ -22,5 +22,13 @@ Route::get('/dashboard-show','AdminController@dashboard_show'); //dashboard
 Route::get('/logout', 'AdminController@logout'); //dang 
 
 //quản lý bạn đọc
-Route::get('/qlbandoc-show', 'BanDocController@danhSachBanDoc');
-Route::get('/qlbandoc-add', 'BanDocController@themBanDoc');
+Route::get('/listbandoc-show', 'BanDocController@listbandoc_show');
+Route::get('/thembandoc-show', 'BanDocController@thembandoc_show');
+////thêm bạn đọc
+Route::post('/add-bandoc', 'BanDocController@add_bandoc');
+////xoá bạn đọc
+Route::get('/del-bandoc/{idthe}', 'BanDocController@del_bandoc');
+////sửa bạn đọc
+Route::get('/edit-bandoc/{idthe}', 'BanDocController@edit_bandoc');
+Route::post('/update-bandoc/{idthe}', 'BanDocController@update_bandoc');
+
