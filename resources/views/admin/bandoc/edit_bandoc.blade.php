@@ -19,9 +19,22 @@
                                     <div class="form-group">
                                         <label >Giới tính</label>
                                         <select class="form-control" name="sua_gioitinh" >
-                                            <option value="Nam">Nam</option>
-                                            <option value="Nữ">Nữ</option>
-                                            <option value="Khác">Khác</option>
+                                            <?php 
+                                                $gioitinh = array();
+                                                $gioitinh[1] = 'Nam';
+                                                $gioitinh[2] = 'Nữ';
+                                                $gioitinh[3] = 'Khác';
+                                                foreach ($gioitinh as $key => $gt) {?>
+                                                    
+                                                    @if($gt == $value->gioitinh) 
+
+                                                        <option selected value="<?php echo $gt ?>" ><?php echo $gt ?></option>
+                                                    @else 
+
+                                                        <option value="<?php echo $gt ?>" ><?php echo $gt ?></option>
+                                                    @endif
+                                                <?php }
+                                             ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -39,6 +52,17 @@
                                     <div class="form-group">
                                         <label >Ngày hết hạn</label>
                                         <input type="date" value="{{$value->ngayhethan}}" class="form-control" name="sua_ngayhethan">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Trạng thái</label>
+                                        <select class="form-control" name="sua_trangthai">
+                                            <option value="0">0</option>
+                                            @if($value->trangthai == 1)
+                                                <option selected value="1">Đang mượn</option>
+                                            @else
+                                                <option value="1">Đang mượn</option>
+                                            @endif
+                                        </select>
                                     </div>
                                 
                                 <button type="submit" class="btn btn-info">Submit</button>
