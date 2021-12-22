@@ -125,20 +125,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="{{URL::to('/listsach-show')}}">Quản lý sách</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="fontawesome.html">
-                        <i class="fa fa-bullhorn"></i>
-                        <span>Font awesome </span>
-                    </a>
-                </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>
-                        <span>Data Tables</span>
+                        <span>Quản lý mượn trả</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="basic_table.html">Basic Table</a></li>
-                        <li><a href="responsive_table.html">Responsive Table</a></li>
+                        <li><a href="{{URL::to('/muonsach-show')}}">Mượn sách</a></li>
+                        <li><a href="{{URL::to('/trasach-show')}}">Quản lý mượn</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -229,6 +223,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="js/jquery.scrollTo.js"></script>
 <!-- morris JavaScript -->  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
     $(document).ready(function() {
         //BOX BUTTON SHOW AND CLOSE
@@ -283,7 +279,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         
        
     });
-    </script>
+</script>
 <!-- calendar -->
     <script type="text/javascript" src="{{asset('public/backendjs/monthly.js')}}"></script>
     <script type="text/javascript">
@@ -316,5 +312,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
     <!-- //calendar -->
+
+
 </body>
+
+<!-- tìm kiếm sách -->
+<script>
+
+    $(document).ready(function() {
+        $(document).on('keyup', '#keyword', function () {
+            var keyword = $(this).val();
+
+            $.ajax( {
+                type: 'get',
+                url: 'search',
+                data: {
+                    keyword: keyword
+                },
+                dataType: 'json',
+                success: function (respose) {
+                    $('#listSach').html(respose);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $(document).on('keyup', '#keyword', function () {
+            var keyword = $(this).val();
+
+            $.ajax( {
+                type: 'get',
+                url: 'searchdm',
+                data: {
+                    keyword: keyword
+                },
+                dataType: 'json',
+                success: function (respose) {
+                    $('#listDanhMuc').html(respose);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $(document).on('keyup', '#keyword', function () {
+            var keyword = $(this).val();
+
+            $.ajax( {
+                type: 'get',
+                url: 'searchbd',
+                data: {
+                    keyword: keyword
+                },
+                dataType: 'json',
+                success: function (respose) {
+                    $('#listBanDoc').html(respose);
+                }
+            });
+        });
+    });
+</script>
+
 </html>

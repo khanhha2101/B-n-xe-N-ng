@@ -11,13 +11,24 @@ session_start();
 
 class AdminController extends Controller
 {
+
+    public function AuthLogin() {
+        $admin_id = Session::get('admin_id');
+        if($admin_id) {
+            return Redirect::to('dashboard-show');
+        } else {
+            return Redirect::to('admin')->send();
+        }
+    }
+
+
     public function index() {
     	return view('admin_login');
     }
 
     //dashboard
     public function dashboard_show(){
-
+        // $this->AuthLogin();
         return view('admin.dashboard');
     }
 
@@ -44,6 +55,7 @@ class AdminController extends Controller
 
     //đăng xuất
     public function logout(){
+        // $this->AuthLogin();
         Session::put('admin_name', null);
         Session::put('admin_id', null);
         return Redirect::to('/admin');

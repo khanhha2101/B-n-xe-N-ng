@@ -12,6 +12,28 @@ session_start();
 class DanhMucController extends Controller
 {
     //
+
+    ///tìm kiếm
+    public function search (Request $request) {
+        $output = '';
+        $danhmucs = DB::table('danhmuc')
+        -> where('tendm', 'LIKE', '%'.$request->keyword.'%') ->get();
+        foreach ($danhmucs as $key => $value) {
+            # code...
+            $output .= '<tr>
+                        <td>'.$value->iddm.'</td>
+                        <td>'.$value->tendm.'</td>
+                        <td>
+
+                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to("/edit-danhmuc/"'.$value->iddm.')}}">  Sửa </a></button>
+
+                            <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm("Bạn có chắc chắn muốn xóa không?")" href="{{URL::to("/del-danhmuc/"'.$value->iddm.')}}">Xóa</a></button>
+                        </td>
+                    </tr>';
+            return response()->json($output);
+        }
+    }
+
     //form thêm danh mục
     public function themdanhmuc_show() {
     	return view('admin.danhmuc.themdanhmuc');

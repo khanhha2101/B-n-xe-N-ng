@@ -12,6 +12,38 @@ session_start();
 class SachController extends Controller
 {
     //
+
+    ///tìm kiếm
+    public function search (Request $request) {
+        $output = '';
+        $sachs = DB::table('sach')
+        -> join('danhmuc', 'danhmuc.iddm', '=', 'sach.iddm')
+        -> where('tensach', 'LIKE', '%'.$request->keyword.'%') ->get();
+        foreach ($sachs as $key => $value) {
+            # code...
+            $output .= '<tr>
+                        <td>'.$value->IdDauSach.'</td>
+                        <td>'.$value->tendm.'</td>
+                        <td>'.$value->tensach.'</td>
+                        <td>'.$value->sotrang.'</td>
+                        <td>'.$value->phienban.'</td>
+                        <td>'.$value->tacgia.'</td>
+                        <td>'.$value->ngonngu.'</td>
+                        <td>'.$value->namxuatban.'</td>
+                        <td>'.$value->nhaxuatban.'</td>
+                        <td>'.$value->soluong.'</td>
+                        <td>
+
+                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to("/edit-sach/"'.$value->idsach.')}}">  Sửa </a></button>
+
+                            <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm("Bạn có chắc chắn muốn xóa không?")" href="{{URL::to("/del-sach/"'.$value->idsach.')}}">Xóa</a></button>
+                        </td>
+                    </tr>';
+            return response()->json($output);
+        }
+    }
+
+
     //form thêm 
     public function themsach_show() {
         $all_danhmuc = DB::table('danhmuc')-> get();

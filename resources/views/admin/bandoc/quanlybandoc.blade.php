@@ -21,7 +21,7 @@
 	      </div>
 	      <div class="col-sm-3">
 	        <div class="input-group">
-	          <input type="text" class="input-sm form-control" placeholder="Search">
+	          <input type="text" class="input-sm form-control" placeholder="Search" name="keyword" id="keyword">
 	          <span class="input-group-btn">
 	            <button class="btn btn-sm btn-default" type="button">Go!</button>
 	          </span>
@@ -43,7 +43,7 @@
 	            <th style="width:135px;"></th>
 	          </tr>
 	        </thead>
-	        <tbody>
+	        <tbody id="listBanDoc">
 	        	@foreach($all_bandoc as $key => $bandoc)
                     <tr>
                         <td>{{$bandoc -> idthe}}</td>
