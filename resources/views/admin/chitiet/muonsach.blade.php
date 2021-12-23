@@ -40,31 +40,39 @@
                                     <thead>
                                         <tr>
                                             <th>STT</th>
-                                            <th>Mã sách</th>
+                                            <th>Sách</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         <tr data-expanded="true">
                                             <td>1</td>
-                                            <td><input type="text" class="form-control" name="masach[]"></td>
+                                            <td><input type="text" class="form-control" name="masach[]" list="exampleList"></td>
+
+
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td><input type="text" class="form-control" name="masach[]"></td>
+                                            <!-- <td><input type="text" class="form-control" name="masach[]"></td> -->
+                                            <td><input type="text" class="form-control" name="masach[]" list="exampleList"></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td><input type="text" class="form-control" name="masach[]"></td>
+                                            <td><input type="text" class="form-control" name="masach[]" list="exampleList"></td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td><input type="text" class="form-control" name="masach[]"></td>
+                                            <td><input type="text" class="form-control" name="masach[]" list="exampleList"></td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td><input type="text" class="form-control" name="masach[]"></td>
+                                            <td><input type="text" class="form-control" name="masach[]" list="exampleList"></td>
                                         </tr>
-
+                                        <datalist id="exampleList">
+                                            @foreach($sachs as $key => $sach)
+                                            <option value="{{$sach->idsach.' - '.$sach->tensach}}">
+                                            @endforeach
+                                        </datalist>
                                     </tbody>
                                 </table>
                             </div>

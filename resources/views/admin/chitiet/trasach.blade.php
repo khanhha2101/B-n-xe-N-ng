@@ -58,7 +58,7 @@
                                         <tr>
                                             <td><?php echo $i; ?></td>
                                             <td>
-                                                <input type="text" name="masach[]" value="{{$chitiet -> idsach}} " size="1"></input>
+                                                <input type="text" style="border: none;" name="masach[]" value="{{$chitiet -> idsach}} " size="1"></input>
                                             </td>
                                             <td>{{$chitiet->tensach}}</td>
                                         </tr>

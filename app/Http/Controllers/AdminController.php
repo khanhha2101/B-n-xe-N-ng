@@ -62,4 +62,23 @@ class AdminController extends Controller
     }
     
  
+    //thống kê
+    //gửi ngày
+    public function send_date(Request $request) {
+
+        $data = $request->all();
+        $date = $data['date'];
+        $date2 = $data['date2'];
+
+        $get = DB::table('chitiet')->whereBetween('ngaymuon', [$date, $date2])->orderBy('ngaymuon', 'ASC')->get();
+
+        foreach($get as $key => $value) {
+            $chart_data[] = array(
+                'time' => $value->ngaymuon,
+                'sum' => 15
+            );
+        }
+
+        echo $data = json_encode($chart_data);
+    }
 }

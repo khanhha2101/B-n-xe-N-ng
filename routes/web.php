@@ -12,14 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('testChart');
 });
 
 ///backend
 Route::get('/admin', 'AdminController@index'); //dangnhap
 Route::post('/dashboard','AdminController@dashboard'); //dashboard
 Route::get('/dashboard-show','AdminController@dashboard_show'); //dashboard
-Route::get('/logout', 'AdminController@logout'); //dang 
+Route::get('/logout', 'AdminController@logout'); //dang xuat
+///thống kê
+Route::post('/send-date', 'AdminController@send_date');
 
 //quản lý bạn đọc
 Route::get('/listbandoc-show', 'BanDocController@listbandoc_show');

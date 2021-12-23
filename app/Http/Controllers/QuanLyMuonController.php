@@ -15,7 +15,8 @@ class QuanLyMuonController extends Controller
     //
     public function muonsach_show()
     {
-        return view('admin.chitiet.muonsach');
+        $all_sach = DB::table('sach')->get();
+        return view('admin.chitiet.muonsach')->with('sachs', $all_sach);
     }
     public function trasach_show()
     {
@@ -52,9 +53,10 @@ class QuanLyMuonController extends Controller
 
         foreach ($masach as $key => $value) {
             if ($value) {
+                $mang = explode(' ', $value);
 
                 $data = array();
-                $data['idsach'] = $value;
+                $data['idsach'] = $mang[0];
                 $data['idthe'] = $request->idthe;
                 $data['ngaymuon'] = $request->ngaymuon;
                 $data['ngaytra'] = $request->hantra;
