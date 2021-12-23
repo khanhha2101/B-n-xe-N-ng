@@ -37,7 +37,7 @@
                         <th>Ngày mượn</th>
                         <th>Hạn trả</th>
                         <th>Ngày trả</th>
-                        <th style="width:135px;"></th>
+                        <th style="width:140px;"></th>
                     </tr>
                 </thead>
                 <tbody id="listMuon">
@@ -49,7 +49,7 @@
                         <td>{{$chitiet -> ngaytra}}</td>
                         <td>{{$chitiet -> ngaytrathucte}}</td>
                         <td>
-                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/edit-chitiet/'.$chitiet->idthe.'&'.$chitiet->ngaymuon.'&'.$chitiet->idct)}}"> Sửa </a></button>
+                            <button type="submit" class="btn" style="background-color: #49CF9B;"><a href="{{URL::to('/edit-chitiet/'.$chitiet->idthe.'&'.$chitiet->ngaymuon.'&'.$chitiet->idct)}}"> Xem</a></button>
 
                             <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/del-chitiet/'.$chitiet->idthe.'&'.$chitiet->ngaymuon.'&'.$chitiet->idct)}}">Xóa</a></button>
                         </td>

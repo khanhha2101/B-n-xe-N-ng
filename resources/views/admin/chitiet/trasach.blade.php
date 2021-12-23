@@ -8,11 +8,13 @@
                 Quản lý trả sách
             </header>
             <div class="panel-body">
+
                 <div class="position-center">
-                    <form role="form" action="{{URL::to('/add-chitiet')}}" method="post">
+                    @foreach($thongtin as $key => $value)
+                    <form role="form" action="{{URL::to('/update-chitiet/'.$value->idthe.'&'.$value->ngaymuon)}}" method="post">
                         {{csrf_field()}}
 
-                        @foreach($thongtin as $key => $value)
+
                         <div class="form-group">
                             <label>Mã thẻ</label>
                             <input type="text" class="form-control" name="idthe" value="{{$value->idthe}}">
@@ -55,7 +57,9 @@
                                         @foreach($edit_chitiet as $key => $chitiet)
                                         <tr>
                                             <td><?php echo $i; ?></td>
-                                            <td>{{$chitiet -> idsach}}</td>
+                                            <td>
+                                                <input type="text" name="masach[]" value="{{$chitiet -> idsach}} " size="1"></input>
+                                            </td>
                                             <td>{{$chitiet->tensach}}</td>
                                         </tr>
                                         <?php $i++; ?>

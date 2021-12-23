@@ -70,6 +70,6 @@ Route::get('/trasach-show', 'QuanLyMuonController@trasach_show');
 Route::post('/add-chitiet', 'QuanLyMuonController@add_chitiet');
 //sửa
 Route::get('/edit-chitiet/{idthe}&{ngaymuon}&{idct}', 'QuanLyMuonController@edit_chitiet');
-Route::post('/update-chitiet/{idthe}&{ngaymuon}&{idct}', 'QuanLyMuonController@update_chitiet');
+Route::post('/update-chitiet/{idthe}&{ngaymuon}', 'QuanLyMuonController@update_chitiet');
 //xoá
 Route::get('/del-chitiet/{idthe}&{ngaymuon}&{idct}', 'QuanLyMuonController@del_chitiet');
