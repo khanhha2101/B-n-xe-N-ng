@@ -29,7 +29,67 @@ class AdminController extends Controller
     //dashboard
     public function dashboard_show(){
         // $this->AuthLogin();
-        return view('admin.dashboard');
+
+        ///dữ liệu bảng thống kê
+        $date = '2021-12-01';
+        $date2 = '2021-12-30';
+
+        $get = DB::table('chitiet')->whereBetween('ngaymuon', [$date, $date2])->get();
+
+        $distinct = null;
+        $slsach = 0;
+        $vipham = 0;
+        foreach ($get as $key => $value) {
+            //số sách mượn
+            $slsach++;
+            //số vi phạm
+            if($value->ngaytrathucte > $value->ngaytra){
+                $vipham++;
+            }
+
+
+            ////
+            if ($distinct != null) {
+                $i = 0;
+                foreach ($distinct as $key => $dis) {
+                    if ($dis->idthe == $value->idthe && $dis->ngaymuon == $value->ngaymuon) {
+
+                        $i = 1;
+                    }
+                }
+                if ($i == 0) {
+                    $distinct[] = $value;
+                }
+            } else {
+                $distinct = array();
+                $distinct[] = $value;
+            }
+        }
+
+        $data = [];
+        foreach($distinct as $key => $value) {
+            $sach = 0;
+            foreach($get as $key => $chitiet) {
+                if ($chitiet->ngaymuon == $value->ngaymuon){
+                    $sach++;
+                }
+            }
+            $data[] = array(
+                'ngaymuon' => $value->ngaymuon,
+                'sosach' => $sach
+            );
+        }
+
+
+        //dữ liệu bạn đọc
+        $bandoc = DB::table('themuon')->get();
+        $bandocs=0;
+        foreach($bandoc as $key => $value) {
+            $bandocs++;
+        }
+
+
+        return view('admin.dashboard')->with('data', $data)->with('bandocs', $bandocs)->with('slsach', $slsach)->with('vipham', $vipham);
     }
 
     ///dang nhap
@@ -70,15 +130,17 @@ class AdminController extends Controller
         $date = $data['date'];
         $date2 = $data['date2'];
 
-        $get = DB::table('chitiet')->whereBetween('ngaymuon', [$date, $date2])->orderBy('ngaymuon', 'ASC')->get();
+        $get = DB::table('chitiet')->whereBetween('ngaymuon', [$date, $date2])->get();
 
         foreach($get as $key => $value) {
             $chart_data[] = array(
-                'time' => $value->ngaymuon,
-                'sum' => 15
+                'ngaymuon' => $value->ngaymuon,
+                'sosach' => 15,
+                'sothe' => 15
             );
         }
 
         echo $data = json_encode($chart_data);
+        // return Redirect::to('/')->with('data', $data);
     }
 }

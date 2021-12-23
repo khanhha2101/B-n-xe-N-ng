@@ -28,7 +28,7 @@ class QuanLyMuonController extends Controller
             if ($distinct != null) {
                 $i = 0;
                 foreach ($distinct as $key => $dis) {
-                    if ($dis->hoten == $value->hoten && $dis->ngaymuon == $value->ngaymuon) {
+                    if ($dis->idthe == $value->idthe && $dis->ngaymuon == $value->ngaymuon) {
 
                         $i = 1;
                     }

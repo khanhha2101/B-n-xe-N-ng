@@ -434,84 +434,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 
     <!-- thống kê -->
-    <script>
-        new Morris.Line({
-            // ID of the element in which to draw the chart.
-            element: 'chart',
-            // Chart data records -- each entry in this array corresponds to a point on
-            // the chart.
-            data: [{
-                    year: '2008',
-                    value: 20
-                },
-                {
-                    year: '2009',
-                    value: 10
-                },
-                {
-                    year: '2010',
-                    value: 5
-                },
-                {
-                    year: '2011',
-                    value: 5
-                },
-                {
-                    year: '2012',
-                    value: 20
-                }
-            ],
-            // The name of the data record attribute that contains x-values.
-            xkey: 'year',
-            // A list of names of data record attributes that contain y-values.
-            ykeys: ['value'],
-            // Labels for the ykeys -- will be displayed when you hover over the
-            // chart.
-            labels: ['Value']
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            // chart30daysorder();
 
-
-            var chart = new Morris.Bar({
-                element: 'myfirstchart',
-                lineColors: ['#819C97', '#658A83', '#16A085', '#C8F4F3', '#FDF9F9'],
-
-                pointFillColors: ['#ffffff'],
-                pointStrokeColors: ['black'],
-                fillOpacity: 0.6,
-                hideHover: 'auto',
-                parseTime: false,
-                xkey: ['time', 'sum'],
-                behaveLikeLine: true,
-                labels: ['Thời gian', 'Số lượng']
-            });
-        });
-
-
-
-
-        $('#btn-lockq').click(function() {
-            var date = $('#date').val();
-            var date2 = $('#date2').val();
-
-            $.ajax({
-                url: "{{url('/send-date')}}",
-                method: "POST",
-                dataType: "JSON",
-                data: {
-                    date: date,
-                    date2: date2
-                },
-
-                success: function(data) {
-                    chart.setData(data);
-                }
-            });
-        });
-    </script>
+    
 
 </body>
 
