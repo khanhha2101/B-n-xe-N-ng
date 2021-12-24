@@ -120,4 +120,73 @@ class QuanLyMuonController extends Controller
         Session::put('message', 'Cập nhật thành công');
         return Redirect::to('trasach-show');
     }
+
+    ///lọc theo trạng thái
+    public function search_mathe($trangthai) {
+        if ($trangthai == 1) {
+            $all_chitiet = DB::table('chitiet')
+            -> whereNull ('ngaytrathucte')
+            ->join('themuon', 'themuon.idthe', '=', 'chitiet.idthe')->orderby('idct', 'desc')->get();
+    
+        } else {
+            $all_chitiet = DB::table('chitiet')
+            -> whereNotNull ('ngaytrathucte')
+            ->join('themuon', 'themuon.idthe', '=', 'chitiet.idthe')->orderby('idct', 'desc')->get();
+    
+        }
+
+        
+
+        
+        $distinct = null;
+        foreach ($all_chitiet as $key => $value) {
+            if ($distinct != null) {
+                $i = 0;
+                foreach ($distinct as $key => $dis) {
+                    if ($dis->idthe == $value->idthe && $dis->ngaymuon == $value->ngaymuon) {
+
+                        $i = 1;
+                    }
+                }
+                if ($i == 0) {
+                    $distinct[] = $value;
+                }
+            } else {
+                $distinct = array();
+                $distinct[] = $value;
+            }
+        }
+
+        $manager_chitiet = view('admin.chitiet.quanlymuon')->with('all_chitiet', $distinct);
+        return view('admin_layout')->with('admin.chitiet.quanlymuon', $manager_chitiet);
+    }
+
+    //tìm kiếm theo mã thẻ
+    public function search_mathe2($idthe) {
+        $all_chitiet = DB::table('chitiet')
+            -> where ('chitiet.idthe', $idthe)
+            ->join('themuon', 'themuon.idthe', '=', 'chitiet.idthe')->orderby('idct', 'desc')->get();
+        
+        $distinct = null;
+        foreach ($all_chitiet as $key => $value) {
+            if ($distinct != null) {
+                $i = 0;
+                foreach ($distinct as $key => $dis) {
+                    if ($dis->idthe == $value->idthe && $dis->ngaymuon == $value->ngaymuon) {
+
+                        $i = 1;
+                    }
+                }
+                if ($i == 0) {
+                    $distinct[] = $value;
+                }
+            } else {
+                $distinct = array();
+                $distinct[] = $value;
+            }
+        }
+
+        $manager_chitiet = view('admin.chitiet.quanlymuon')->with('all_chitiet', $distinct);
+        return view('admin_layout')->with('admin.chitiet.quanlymuon', $manager_chitiet);
+    }
 }

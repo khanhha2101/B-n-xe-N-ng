@@ -75,3 +75,7 @@ Route::get('/edit-chitiet/{idthe}&{ngaymuon}&{idct}', 'QuanLyMuonController@edit
 Route::post('/update-chitiet/{idthe}&{ngaymuon}', 'QuanLyMuonController@update_chitiet');
 //xoá
 Route::get('/del-chitiet/{idthe}&{ngaymuon}&{idct}', 'QuanLyMuonController@del_chitiet');
+//lọc theo trạng thái
+Route::get('/search-mathe/{trangthai}', 'QuanLyMuonController@search_mathe');
+//tìm kiếm theo mã thẻ
+Route::get('/search-mathe2/{idthe}', 'QuanLyMuonController@search_mathe2');
