@@ -24,7 +24,7 @@ Route::get('/logout', 'AdminController@logout'); //dang xuat
 Route::post('/send-date', 'AdminController@send_date');
 
 //quản lý bạn đọc
-Route::get('/listbandoc-show', 'BanDocController@listbandoc_show');
+Route::get('/listbandoc-show/{diachi}', 'BanDocController@listbandoc_show');
 Route::get('/thembandoc-show', 'BanDocController@thembandoc_show');
 ////thêm 
 Route::post('/add-bandoc', 'BanDocController@add_bandoc');
@@ -63,6 +63,8 @@ Route::get('/edit-sach/{idsach}', 'SachController@edit_sach');
 Route::post('/update-sach/{idsach}', 'SachController@update_sach');
 ////tìm kiếm 
 Route::get('/search', 'SachController@search');
+//lọc theo tên danh mục
+Route::get('/loc-sach/{iddm}', 'SachController@loc_sach');
 
 
 //quản lý mượn trả sách

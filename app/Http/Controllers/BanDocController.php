@@ -47,10 +47,33 @@ class BanDocController extends Controller
     }
 
     //hiển thị list bạn đọc
-    public function listbandoc_show() {
+    public function listbandoc_show($diachi) {
+        $all_bandoc2 = DB::table('themuon')-> get();
+        $diachis = null;
+        foreach($all_bandoc2 as $key => $value) {
+            if ($diachis != null) {
+                $kt = 0;
+                foreach ($diachis as $key => $dc) {
+                    if ($value->diachi == $dc->diachi) {
+                        $kt = 1;
+                    }
+                }
+                if ($kt == 0) {
+                    $diachis[] = $value;
+                }
+            } else {
+                $diachis = array();
+                $diachis[] = $value;
+            }
+        }
 
-        $all_bandoc = DB::table('themuon')-> get();
-        $manager_bandoc = view('admin.bandoc.quanlybandoc') -> with('all_bandoc',$all_bandoc);
+        if ($diachi == "0") {
+            $all_bandoc = DB::table('themuon')-> get();
+        } else {
+            $all_bandoc = DB::table('themuon')->where('diachi', $diachi)-> get();
+        }
+        
+        $manager_bandoc = view('admin.bandoc.quanlybandoc') -> with('all_bandoc',$all_bandoc)->with('diachi', $diachis);
         return view('admin_layout') -> with('admin.bandoc.quanlybandoc',$manager_bandoc);
     }
 
