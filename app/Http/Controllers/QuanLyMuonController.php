@@ -16,7 +16,8 @@ class QuanLyMuonController extends Controller
     public function muonsach_show()
     {
         $all_sach = DB::table('sach')->get();
-        return view('admin.chitiet.muonsach')->with('sachs', $all_sach);
+        $all_the = DB::table('themuon')->get();
+        return view('admin.chitiet.muonsach')->with('sachs', $all_sach)->with('bandoc', $all_the);
     }
     public function trasach_show()
     {
@@ -66,6 +67,7 @@ class QuanLyMuonController extends Controller
         }
 
         if ($result) {
+            Session::put('msg', '<script type="text/javascript">alert("Thêm thành công!");</script>');
 
             return Redirect::to('/trasach-show');
         } else {
@@ -77,7 +79,6 @@ class QuanLyMuonController extends Controller
     public function del_chitiet($idthe, $ngaymuon)
     {
         DB::table('chitiet')->where('idthe', $idthe)->where('ngaymuon', $ngaymuon)->delete();
-        Session::put('message', 'Xóa thành công');
         return Redirect::to('trasach-show');
     }
 
@@ -85,7 +86,9 @@ class QuanLyMuonController extends Controller
     public function edit_chitiet($idthe, $ngaymuon, $idct)
     {
 
-        $thongtin = DB::table('chitiet')->where('idct', $idct)->get();
+        $thongtin = DB::table('chitiet')
+        -> join('themuon', 'themuon.idthe', '=', 'chitiet.idthe')
+        ->where('idct', $idct)->get();
 
         $edit_chitiet = DB::table('chitiet')
             ->join('sach', 'sach.idsach', '=', 'chitiet.idsach')
@@ -104,9 +107,11 @@ class QuanLyMuonController extends Controller
 
         foreach ($idcts as $key => $value) {
 
+            $mang = explode(' ', $request->idthe);
+
             $data = array();
             $data['idsach'] = $masach[$i];
-            $data['idthe'] = $request->idthe;
+            $data['idthe'] = $mang[0];
             $data['ngaymuon'] = $request->ngaymuon;
             $data['ngaytra'] = $request->hantra;
             $data['ngaytrathucte'] = $request->ngaytra;

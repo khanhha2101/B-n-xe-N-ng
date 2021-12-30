@@ -17,7 +17,7 @@ class AdminController extends Controller
         if($admin_id) {
             return Redirect::to('dashboard-show');
         } else {
-            return Redirect::to('admin')->send();
+            return Redirect::to('/')->send();
         }
     }
 
@@ -109,7 +109,7 @@ class AdminController extends Controller
 
             Session::put('message', 'Tai khoan hoac mat khau sai. Yeu cau nhap lai');
 
-            return Redirect::to('/admin');
+            return Redirect::to('/');
         }
     }
 
@@ -118,7 +118,7 @@ class AdminController extends Controller
         // $this->AuthLogin();
         Session::put('admin_name', null);
         Session::put('admin_id', null);
-        return Redirect::to('/admin');
+        return Redirect::to('/');
     }
     
  

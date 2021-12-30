@@ -14,7 +14,12 @@
 
                         <div class="form-group">
                             <label>Mã thẻ</label>
-                            <input type="text" class="form-control" name="idthe">
+                            <!-- <input type="text" class="form-control" name="idthe"> -->
+                            <select class="form-control" name="idthe">
+                                @foreach($bandoc as $key => $the)
+                                <option value="{{$the->idthe}}">{{$the->idthe.' - '.$the->hoten}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Ngày mượn</label>

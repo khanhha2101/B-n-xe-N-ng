@@ -3,6 +3,14 @@
 
 
 <div class="table-agile-info">
+	<?php
+	$msg = Session::get('msg');
+	if ($msg) {
+		echo $msg;
+		Session::put('msg', null);
+	}
+
+	?>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			Quản lý Sách

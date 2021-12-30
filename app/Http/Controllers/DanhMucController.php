@@ -56,6 +56,8 @@ class DanhMucController extends Controller
 
         if($result) {
 
+            Session::put('msg', '<script type="text/javascript">alert("Thêm thành công!");</script>');
+
             return Redirect::to('/listdanhmuc-show');
         } else {
 
@@ -66,7 +68,6 @@ class DanhMucController extends Controller
     //xoá bạn đọc
     public function del_danhmuc($iddm) {
         DB::table('danhmuc')-> where('iddm',$iddm)->delete();
-        Session::put('message','Xóa thành công');
         return Redirect::to('listdanhmuc-show');
     }
 
@@ -82,7 +83,6 @@ class DanhMucController extends Controller
         $data['tendm'] = $request->sua_tendm;
 
         DB::table('danhmuc')-> where('iddm',$iddm)->update($data);
-        Session::put('message','Cập nhật danh mục sản phẩm thành công');
         return Redirect::to('listdanhmuc-show');
     }
 }

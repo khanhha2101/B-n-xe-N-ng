@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 ///backend
-Route::get('/admin', 'AdminController@index'); //dangnhap
+Route::get('/', 'AdminController@index'); //dangnhap
 Route::post('/dashboard','AdminController@dashboard'); //dashboard
 Route::get('/dashboard-show','AdminController@dashboard_show'); //dashboard
 Route::get('/logout', 'AdminController@logout'); //dang xuat
@@ -81,3 +81,10 @@ Route::get('/del-chitiet/{idthe}&{ngaymuon}&{idct}', 'QuanLyMuonController@del_c
 Route::get('/search-mathe/{trangthai}', 'QuanLyMuonController@search_mathe');
 //tìm kiếm theo mã thẻ
 Route::get('/search-mathe2/{idthe}', 'QuanLyMuonController@search_mathe2');
+
+
+//thống kê
+Route::get('/thongke-sach/{date1}&{date2}', 'ThongKeController@thongke_sach');
+Route::post('/sach-thongke', 'ThongKeController@sach_thongke');
+Route::get('/thongke-bandoc/{date1}&{date2}', 'ThongKeController@thongke_bandoc');
+Route::post('/bandoc-thongke', 'ThongKeController@bandoc_thongke');

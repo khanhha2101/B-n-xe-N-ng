@@ -103,6 +103,8 @@ class SachController extends Controller
 
         if ($result) {
 
+            Session::put('msg', '<script type="text/javascript">alert("Thêm thành công!");</script>');
+
             return Redirect::to('/listsach-show');
         } else {
 
@@ -114,7 +116,6 @@ class SachController extends Controller
     public function del_sach($idsach)
     {
         DB::table('sach')->where('idsach', $idsach)->delete();
-        Session::put('message', 'Xóa thành công');
         return Redirect::to('listsach-show');
     }
 
@@ -143,7 +144,6 @@ class SachController extends Controller
         $data['IdDauSach'] = $request->them_dausach;
 
         DB::table('sach')->where('idsach', $idsach)->update($data);
-        Session::put('message', 'Cập nhật danh mục sản phẩm thành công');
         return Redirect::to('listsach-show');
     }
 }

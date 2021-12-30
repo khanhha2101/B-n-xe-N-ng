@@ -92,7 +92,9 @@ class BanDocController extends Controller
 
         if($result) {
 
-            return Redirect::to('/listbandoc-show');
+            Session::put('msg', '<script type="text/javascript">alert("Thêm thành công!");</script>');
+
+            return Redirect::to('/listbandoc-show/0');
         } else {
 
             return Redirect::to('/thembandoc-show');
@@ -103,7 +105,7 @@ class BanDocController extends Controller
     public function del_bandoc($idthe) {
         DB::table('themuon')-> where('idthe',$idthe)->delete();
         Session::put('message','Xóa thành công');
-        return Redirect::to('listbandoc-show');
+        return Redirect::to('listbandoc-show/0');
     }
 
     //sửa bạn đọc
@@ -124,8 +126,7 @@ class BanDocController extends Controller
         $data['trangthai'] = 0;
 
         DB::table('themuon')-> where('idthe',$idthe)->update($data);
-        Session::put('message','Cập nhật danh mục sản phẩm thành công');
-        return Redirect::to('listbandoc-show');
+        return Redirect::to('listbandoc-show/0');
     }
     
 }

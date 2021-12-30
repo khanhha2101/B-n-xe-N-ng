@@ -17,7 +17,7 @@
 
                         <div class="form-group">
                             <label>Mã thẻ</label>
-                            <input type="text" class="form-control" name="idthe" value="{{$value->idthe}}">
+                            <input type="text" class="form-control" name="idthe" value="{{$value->idthe.' - '.$value->hoten}}">
                         </div>
                         <div class="form-group">
                             <label>Ngày mượn</label>

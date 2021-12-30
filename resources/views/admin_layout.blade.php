@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 
 <head>
-    <title>Visitors an Admin Panel Category Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <title>Quản lý thư viện</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="{{asset('public/backend/images/2.png')}}">
+                            <img alt="" src="{{asset('public/backend/images/avt.png')}}">
                             <span class="username">
                                 <?php
                                 $name = Session::get('admin_name');
@@ -148,54 +148,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;">
-                                <i class="fa fa-tasks"></i>
-                                <span>Form Components</span>
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Thống kê</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="form_component.html">Form Elements</a></li>
-                                <li><a href="form_validation.html">Form Validation</a></li>
-                                <li><a href="dropzone.html">Dropzone</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-envelope"></i>
-                                <span>Mail </span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="mail.html">Inbox</a></li>
-                                <li><a href="mail_compose.html">Compose Mail</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class=" fa fa-bar-chart-o"></i>
-                                <span>Charts</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="chartjs.html">Chart js</a></li>
-                                <li><a href="flot_chart.html">Flot Charts</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class=" fa fa-bar-chart-o"></i>
-                                <span>Maps</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="google_map.html">Google Map</a></li>
-                                <li><a href="vector_map.html">Vector Map</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-glass"></i>
-                                <span>Extra</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="404.html">404 Error</a></li>
-                                <li><a href="registration.html">Registration</a></li>
+                                <li><a href="{{URL::to('/thongke-sach/0&0')}}">Thống kê sách</a></li>
+                                <li><a href="{{URL::to('/thongke-bandoc/0&0')}}">Thống kê bạn đọc</a></li>
                             </ul>
                         </li>
                         <li>
