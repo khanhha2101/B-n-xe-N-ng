@@ -11,6 +11,22 @@
 |
 */
 
+
+/*
+|--------------------------------------------------------------------------
+| KHÁCH HÀNG
+|--------------------------------------------------------------------------
+*/
+Route::get('/home', 'TrangChuController@home'); 
+Route::post('/kiemtralogin', 'TrangChuController@kiemtralogin'); 
+Route::get('/login', 'TrangChuController@login'); 
+Route::get('/createaccount', 'TrangChuController@createaccount'); 
+Route::get('/canhan', 'KhachHangController@canhan'); 
+Route::get('/dangxuat', 'TrangChuController@dangxuat'); 
+/*
+|----------------------------KHÁCH HÀNG-----------------------------------
+*/
+
 Route::get('/', function () {
     return view('testChart');
 });
