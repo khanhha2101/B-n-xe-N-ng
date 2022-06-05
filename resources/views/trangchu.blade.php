@@ -21,7 +21,20 @@
         font-size: 12px;
         color: #9B9B9B;
         padding-top: 10px;
-		
+    }
+	.timkiem{
+		color: white;
+	}
+	.timkiem:hover{
+		text-decoration: none;
+		color: white;
+	}
+	.btn-tim {
+        height: 40px;
+        background-color: #CBBCF0;
+        color: white;
+        border-radius: 5px;
+        border: none;
     }
 </style>
 <div class="mainhd" style="padding-top: 20px; background-color: white;">
@@ -46,7 +59,7 @@
 				<input type="date" class="form-control inputText" placeholder="Ngày đi">
 			</div>
 			<div class="col-md-2">
-				<button class="btn-xanh">Tìm vé xe</button>
+				<button class="btn-xanh"><a href="{{URL::to('/trangtimkiem')}}" class="timkiem">Tìm vé xe</a></button>
 			</div>
 		</div>
 	</div>
@@ -59,7 +72,7 @@
 						<th>Tuyến đường</th>
 						<th>Hãng xe</th>
 						<th>Giá vé</th>
-						<th style="width:135px;"></th>
+						<th style="width:175px;"></th>
 					</tr>
 				</thead>
 				<tbody id="listBanDoc">
@@ -67,31 +80,46 @@
 						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
 						<td>Tùng Vy</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
 						<td>Hoàng Vân - Đà Nẵng</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
 						<td>Đại Phát</td>
 						<td>380.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
 						<td>Vân Khôi</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
 						<td>Tuấn Nam</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 				</tbody>
 			</table>
@@ -106,7 +134,7 @@
 						<th>Tuyến đường</th>
 						<th>Hãng xe</th>
 						<th>Giá vé</th>
-						<th style="width:135px;"></th>
+						<th style="width:175px;"></th>
 					</tr>
 				</thead>
 				<tbody id="listBanDoc">
@@ -114,61 +142,91 @@
 						<td>Bến xe trung tâm Đà Nẵng đi Sài Gòn</td>
 						<td>Tùng Vy</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Hải Phòng</td>
 						<td>Hoàng Vân - Đà Nẵng</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Nha Trang</td>
 						<td>Đại Phát</td>
 						<td>380.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Cam Ranh</td>
 						<td>Vân Khôi</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
 						<td>Tuấn Nam</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Sài Gòn</td>
 						<td>Tùng Vy</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Hải Phòng</td>
 						<td>Hoàng Vân - Đà Nẵng</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Nha Trang</td>
 						<td>Đại Phát</td>
 						<td>380.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Cam Ranh</td>
 						<td>Vân Khôi</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 					<tr>
 						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
 						<td>Tuấn Nam</td>
 						<td>365.000₫</td>
-						<td><button class="btn-xanh">Chọn ngay</button></td>
+						<td>
+                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-tim">Xem</button>
+                        </td>
 					</tr>
 				</tbody>
 			</table>

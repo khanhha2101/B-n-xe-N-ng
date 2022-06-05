@@ -24,6 +24,7 @@ Route::get('/createaccount', 'TrangChuController@createaccount');
 Route::get('/canhan', 'KhachHangController@canhan'); 
 Route::get('/dangxuat', 'TrangChuController@dangxuat'); 
 Route::get('/trangthongbao', 'TrangChuController@trangthongbao'); 
+Route::get('/trangtimkiem', 'TrangChuController@trangtimkiem'); 
 /*
 |----------------------------KHÁCH HÀNG-----------------------------------
 */

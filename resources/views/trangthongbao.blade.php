@@ -31,19 +31,32 @@
             <hr style="margin-left: -30px;">
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" class="input-sm form-control" placeholder="Search" name="keyword" id="keyword">
+                <span class="input-group-btn">
+                    <button class="btn btn-sm btn-default" type="button">Tìm</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
     <div class="row box-tb" style="margin-top: 20px; ">
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gah giuahrgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJ</p>
+        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gah giua hrgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJ</p>
         <p class="chunho">01/06/2022</p>
     </div>
     <div class="row box-tb" style="margin-top: 20px; ">
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gahgiuahrgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb </p>
+        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gah giu gu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb </p>
         <p class="chunho">01/06/2022</p>
     </div>
     <div class="row box-tb" style="margin-top: 20px; ">
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gahgi uahrgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJathathae dhgadg</p>
+        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gahgi uah rgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJathathae dhgadg</p>
         <p class="chunho">01/06/2022</p>
     </div>
     <div class="row box-tb" style="margin-top: 20px; ">
@@ -53,7 +66,7 @@
     </div>
     <div class="row box-tb" style="margin-top: 20px; ">
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gah giuahrgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJ</p>
+        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gah giuah rgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJ</p>
         <p class="chunho">01/06/2022</p>
     </div>
 

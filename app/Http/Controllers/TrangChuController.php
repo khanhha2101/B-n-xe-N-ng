@@ -57,4 +57,9 @@ class TrangChuController extends Controller
     {
         return view('trangthongbao');
     }
+    //trang tìm kiễm
+    public function trangtimkiem()
+    {
+        return view('trangtimkiem');
+    }
 }
