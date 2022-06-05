@@ -1,11 +1,11 @@
-@extends('admin_layout')
+@extends('quanly.trangquanly')
 @section('admin_content')
 
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                Thêm bạn đọc
+                Thông tin cá nhân
             </header>
             <div class="panel-body">
                 <div class="position-center">
@@ -33,15 +33,19 @@
                             <input type="text" class="form-control" name="them_diachi">
                         </div>
                         <div class="form-group">
-                            <label>Ngày tạo</label>
+                            <label>Ngày sinh</label>
                             <input type="date" class="form-control" name="them_ngaytao">
                         </div>
                         <div class="form-group">
-                            <label>Ngày hết hạn</label>
-                            <input type="date" class="form-control" name="them_ngayhethan">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="them_ngayhethan">
+                        </div>
+                        <div class="form-group">
+                            <label>CCCD/CMND</label>
+                            <input type="text" class="form-control" name="them_ngayhethan">
                         </div>
 
-                        <button type="submit" class="btn btn-info">Submit</button>
+                        <button type="submit" class="btn btn-info">Cập nhật</button>
                     </form>
                 </div>
 

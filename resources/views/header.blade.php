@@ -1,6 +1,6 @@
 <style>
     .containerhd {
-        background-color: #E3D8FE;
+        background-color: #D2FEE1;
         height: 100px;
         color: white;
     }
@@ -52,7 +52,7 @@ $quyen = Session::get('quyen');
                 @if($id)
                 <ul style="margin-top: 50px; margin-left: 20px;">
                     <li class="lihd"><a class="menuhd" href="{{URL::to('/home')}}">Trang chủ</a></li>
-                    <li class="lihd"><a class="menuhd" href="#contact">Tuyến đường</a></li>
+                    <li class="lihd"><a class="menuhd" href="{{URL::to('/trangthongbao')}}">Thông báo</a></li>
                     <li class="lihd"><a class="menuhd" href="#news">Giới thiệu</a></li>
                     <li class="lihd" style="margin-top: 7px; margin-left: 50px;">
                         <div class="row" style="color: #024751;">
@@ -63,7 +63,7 @@ $quyen = Session::get('quyen');
                 @else
                 <ul style="margin-top: 50px; margin-left: -5px;">
                     <li class="lihd"><a class="menuhd" href="{{URL::to('/home')}}">Trang chủ</a></li>
-                    <li class="lihd"><a class="menuhd" href="#contact">Tuyến đường</a></li>
+                    <li class="lihd"><a class="menuhd" href="{{URL::to('/trangthongbao')}}">Thông báo</a></li>
                     <li class="lihd"><a class="menuhd" href="#news">Giới thiệu</a></li>
                     <li class="lihd"><a class="menuhd" href="{{URL::to('/login')}}">Đăng nhập/Đăng ký</a></li>
                 </ul>

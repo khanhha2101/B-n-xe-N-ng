@@ -1,6 +1,7 @@
 <style>
     .containerft {
-        background-color: #E3D8FE;
+        background-color: #D2FEE1;
+        
     }
 </style>
 
@@ -16,8 +17,8 @@
             <div class="col-md-3" style="padding-left: 80px;"><img src="{{asset('public/frontend/img/iconcall.png')}}" alt=""> 0123456789</div>
             <div class="col-md-3" style="padding-left: 110px;"><img src="{{asset('public/frontend/img/iconemail.png')}}" alt=""> bxedn@gmail.com</div>
         </div>
-        <div class="row" style="padding-left: 20px;">
-            <p style="font-size: 14px;">Bản quyền © 2022 thuộc về benxedn.Com</p>
+        <div class="row" >
+            <p style="font-size: 12px; text-align: center;">Bản quyền © 2022 thuộc về benxedn.Com</p>
         </div>
     </div>
 </div>

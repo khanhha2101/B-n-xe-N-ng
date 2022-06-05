@@ -23,8 +23,35 @@ Route::get('/login', 'TrangChuController@login');
 Route::get('/createaccount', 'TrangChuController@createaccount'); 
 Route::get('/canhan', 'KhachHangController@canhan'); 
 Route::get('/dangxuat', 'TrangChuController@dangxuat'); 
+Route::get('/trangthongbao', 'TrangChuController@trangthongbao'); 
 /*
 |----------------------------KHÁCH HÀNG-----------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| QUẢN LÝ
+|--------------------------------------------------------------------------
+*/
+Route::get('/trangchinh', 'QuanLyController@trangchinh');
+Route::get('/trangquanly', 'QuanLyController@trangquanly'); 
+Route::get('/trangcanhan', 'QuanLyController@trangcanhan'); 
+Route::get('/dsdkhangxe', 'QuanLyController@dsdkhangxe'); 
+/*
+|----------------------------QUẢN LÝ-----------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| NHÂN VIÊN
+|--------------------------------------------------------------------------
+*/
+Route::get('/dangthongbao', 'QuanLyController@dangthongbao'); 
+Route::get('/dsthongbao', 'QuanLyController@dsthongbao'); 
+Route::get('/dshotro', 'QuanLyController@dshotro');
+Route::get('/chitiethotro', 'QuanLyController@chitiethotro');
+/*
+|----------------------------NHÂN VIÊN-----------------------------------
 */
 
 Route::get('/', function () {

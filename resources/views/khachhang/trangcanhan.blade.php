@@ -4,7 +4,7 @@
     .bodycn {
         display: flex;
         font-family: "Poppins", sans-serif;
-        height: 700px;
+        height: 750px;
     }
 
     .bodycn>div {
@@ -30,7 +30,7 @@
     .tab-item {
         min-width: 80px;
         padding: 16px 20px 11px 20px;
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
         color: #024751;
         background-color: #fff;
@@ -73,7 +73,7 @@
     }
 
     .tab-pane h2 {
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 8px;
     }
 
@@ -109,10 +109,11 @@
         height: 40px;
         margin: 10px 10px 20px 0px;
     }
-    .thoat{
+
+    .thoat {
         min-width: 80px;
         padding: 16px 20px 11px 20px;
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
         color: #024751;
         background-color: #fff;
@@ -123,21 +124,28 @@
         cursor: pointer;
         transition: all 0.5s ease;
     }
+
     .thoat:hover {
         opacity: 1;
         background-color: #E3DEF1;
         border-color: #E3DEF1;
     }
-    .thea{
-        font-size: 20px;
+
+    .thea {
+        font-size: 18px;
         text-align: center;
         color: #024751;
     }
-    .thea:hover{
+
+    .thea:hover {
         text-decoration: none;
     }
 </style>
 
+<?php
+$id = Session::get('id');
+$quyen = Session::get('quyen');
+?>
 
 <div class="mainhd">
     <div class="row" style="margin-top: 20px;">
@@ -153,14 +161,49 @@
         <div>
             <!-- Tab items -->
             <div class="tabs">
+                <!-- khách hàng -->
                 <div class="tab-item active">
                     <i class="tab-icon fas fa-pen-nib"></i>
                     Thông tin cá nhân
                 </div>
+                @if($quyen == 2)
                 <div class="tab-item">
                     <i class="tab-icon fas fa-plus-circle"></i>
                     Đăng ký hãng xe
                 </div>
+                @endif
+
+                <!-- chủ hãng xe -->
+                @if($quyen == 3)
+                <div class="tab-item">
+                    <i class="tab-icon fas fa-cog"></i>
+                    Chuyến xe
+                </div>
+                <div class="tab-item">
+                    <i class="tab-icon fas fa-code"></i>
+                    Tuyến đường
+                </div>
+                <div class="tab-item">
+                    <i class="tab-icon fas fa-plus-circle"></i>
+                    Danh sách xe
+                </div>
+                <div class="tab-item">
+                    <i class="tab-icon fas fa-pen-nib"></i>
+                    Danh sách tài xế
+                </div>
+                @endif
+
+                <!-- tài xế -->
+                @if($quyen==4)
+                <div class="tab-item">
+                    <i class="tab-icon fas fa-code"></i>
+                    Lịch làm việc
+                </div>
+                <div class="tab-item">
+                    <i class="tab-icon fas fa-plus-circle"></i>
+                    Thông báo sự cố
+                </div>
+                @endif
                 <div class="line"></div>
                 <div class="thoat">
                     <i class="tab-icon fas fa-cog"></i>
@@ -170,6 +213,7 @@
 
             <!-- Tab content -->
             <div class="tab-content">
+                <!-- thông tin cá nhân -->
                 <div class="tab-pane active">
                     <div class="row">
                         <div class="col-md-1"><img src="{{asset('public/frontend/img/iconuser2.png')}}" alt=""></div>
@@ -190,14 +234,32 @@
                             <input type="text" class="form-control inputText" placeholder="Số điện thoại">
                             <input type="text" class="form-control inputText" placeholder="Email">
                             <input type="text" class="form-control inputText" placeholder="CMND/CCCD">
+                            @if($quyen == 4 || $quyen == 3)
+                            <input type="text" class="form-control inputText" placeholder="Hãng xe">
+                            @endif
                         </div>
                     </div>
-                    <div class="row">
+                    @if($quyen == 4)
+                    <!-- tài xế -->
+                    <div class="row" style="margin-top: 30px;">
+                        <div class="col-md-2">
+                            <p>Giấy phép lái xe</p>
+                            <img class="anhtaixe" src="{{asset('public/frontend/img/imganh.png')}}" alt="">
+                        </div>
+                        <div class="col-md-3">
+                            <p>Bảo hiểm y tế</p>
+                            <img class="anhtaixe" src="{{asset('public/frontend/img/imganh.png')}}" alt="">
+                        </div>
+                    </div>
+                    @endif
+                    <div class="row" style="margin-top: 50px;">
                         <div class="col-md-2">
                             <button class="btn-xanh2 btn2">Cập nhật</button>
                         </div>
                     </div>
                 </div>
+                <!-- đăng ký hãng xe -->
+                @if($quyen == 2)
                 <div class="tab-pane">
                     <div class="row">
                         <div class="col-md-6">
@@ -212,6 +274,318 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
+                <!-- chủ hãng xe -->
+                @if($quyen == 3)
+                <!-- chuyến -->
+                <div class="tab-pane">
+                    <p style="font-size: 14px;">Giai đoạn: 01/06/2022 - 30/06/2022</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã số chuyến</th>
+                                    <th>Tuyến đường</th>
+                                    <th>Thứ</th>
+                                    <th>Thời gian</th>
+                                    <th>Giá vé</th>
+                                    <th style="width:135px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="listBanDoc">
+                                <tr>
+                                    <td>1</td>
+                                    <td>CX002</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Thứ 2</td>
+                                    <td>8h - 14h</td>
+                                    <td>365.000₫</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>CX005</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Thứ 4</td>
+                                    <td>8h - 14h</td>
+                                    <td>365.000₫</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>CX006</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Thứ 5</td>
+                                    <td>8h - 14h</td>
+                                    <td>365.000₫</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>CX008</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Thứ 7</td>
+                                    <td>8h - 14h</td>
+                                    <td>365.000₫</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button class="btn-xanh2 btn2">Thêm chuyến</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- tuyến -->
+                <div class="tab-pane">
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã số tuyến</th>
+                                    <th>Tuyến đường</th>
+                                    <!-- <th style="width:135px;"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody id="listBanDoc">
+                                <tr>
+                                    <td>1</td>
+                                    <td>T002</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <!-- <td><button class="btn-xanh">Chi tiết</button></td> -->
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>T005</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Sài Gòn</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>T007</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hải Phòng</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>T009</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Quảng Nam</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button class="btn-xanh2 btn2">Thêm tuyến</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- xe -->
+                <div class="tab-pane">
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã số xe</th>
+                                    <th>Biển số</th>
+                                    <th>Loại xe</th>
+                                    <th>Số chỗ</th>
+                                    <th>Tuyến đang chạy</th>
+                                    <th style="width:135px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="listBanDoc">
+                                <tr>
+                                    <td>1</td>
+                                    <td>XE002</td>
+                                    <td>43C-123456</td>
+                                    <td>Xe ghế ngồi</td>
+                                    <td>20</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>XE005</td>
+                                    <td>43C-123456</td>
+                                    <td>Xe ghế ngồi</td>
+                                    <td>20</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Sài Gòn</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>XE007</td>
+                                    <td>43C-123456</td>
+                                    <td>Xe ghế ngồi</td>
+                                    <td>20</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hải Phòng</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>XE008</td>
+                                    <td>43C-123456</td>
+                                    <td>Xe ghế ngồi</td>
+                                    <td>20</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Quảng Nam</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button class="btn-xanh2 btn2">Thêm xe</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- tài xế -->
+                <div class="tab-pane">
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã tài xế</th>
+                                    <th>Họ tên</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Chức vụ</th>
+                                    <th>Xe đang lái</th>
+                                    <th style="width:135px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="listBanDoc">
+                                <tr>
+                                    <td>1</td>
+                                    <td>TX002</td>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>0392748639</td>
+                                    <td>Lái chính</td>
+                                    <td>43C-294725</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>TX005</td>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>0392748639</td>
+                                    <td>Lái chính</td>
+                                    <td>43C-294725</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>TX008</td>
+                                    <td>Nguyễn Văn C</td>
+                                    <td>0392748639</td>
+                                    <td>Lái chính</td>
+                                    <td>43C-294725</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>TX009</td>
+                                    <td>Nguyễn Văn D</td>
+                                    <td>0392748639</td>
+                                    <td>Lái chính</td>
+                                    <td>43C-294725</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button class="btn-xanh2 btn2">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if($quyen == 4)
+                <!-- lịch làm việc -->
+                <div class="tab-pane">
+                    <p style="font-size: 14px;">Giai đoạn: 01/06/2022 - 30/06/2022</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã số chuyến</th>
+                                    <th>Tuyến đường</th>
+                                    <th>Thứ</th>
+                                    <th>Thời gian</th>
+                                    <th>Chức vụ</th>
+                                    <th style="width:135px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="listBanDoc">
+                                <tr>
+                                    <td>1</td>
+                                    <td>CX002</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Thứ 2</td>
+                                    <td>8h - 14h</td>
+                                    <td>Lái chính</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>CX005</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Thứ 4</td>
+                                    <td>8h - 14h</td>
+                                    <td>Lái chính</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>CX006</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Thứ 5</td>
+                                    <td>8h - 14h</td>
+                                    <td>Lái chính</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>CX008</td>
+                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Thứ 7</td>
+                                    <td>8h - 14h</td>
+                                    <td>Lái chính</td>
+                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- thông báo sự cố -->
+                <div class="tab-pane">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select class="form-control inputText">
+                                <option selected value="0"></option>
+                                <option value="0">CX001 - Đà Nẵng -> Hà Nội</option>
+                                <option value="1">CX002 - Đà Nẵng -> Hải Phòng</option>
+                                <option value="1">CX003 - Đà Nẵng -> Sài Gòn</option>
+                            </select>
+                            <input type="text" class="form-control inputText" placeholder="Tên sự cố">
+                            <input type="text" class="form-control inputText" placeholder="Chi tiết sự cố">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button class="btn-xanh2 btn2">Gửi thông báo</button>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>
