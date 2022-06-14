@@ -88,7 +88,7 @@ $quyen = Session::get('quyen');
                         <ul class="dropdown-menu extended logout">
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Cá nhân</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
-                            <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i>Đăng xuất</a></li>
+                            <li><a href="{{URL::to('/dangxuat')}}"><i class="fa fa-key"></i>Đăng xuất</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -124,10 +124,25 @@ $quyen = Session::get('quyen');
                             </ul>
                         </li>
                         <li>
-                            <a class="active" href="{{URL::to('/dshotro')}}">
+                            <a href="{{URL::to('/dshotro')}}">
                                 <i class="fa fa-th"></i>
                                 <span>Yêu cầu hỗ trợ</span>
                             </a>
+                        </li>
+                        @endif
+
+                        <!-- nhân viên trực cổng -->
+                        @if($quyen == 6)
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                                <span>Xe trong bến</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('/dangthongbao')}}">Danh sách xe</a></li>
+                                <li><a href="{{URL::to('/dsthongbao')}}">Xác nhận xe vào bến</a></li>
+                                <li><a href="{{URL::to('/dsthongbao')}}">Xác nhận xe xuất bến</a></li>
+                            </ul>
                         </li>
                         @endif
 
@@ -135,12 +150,22 @@ $quyen = Session::get('quyen');
                         @if($quyen == 7)
                         <li class="sub-menu">
                             <a href="javascript:;">
-                                <i class="fa fa-user"></i>
+                                <i class="fa fa-th"></i>
                                 <span>Danh sách hãng xe</span>
                             </a>
                             <ul class="sub">
                                 <li><a href="{{URL::to('/dsdkhangxe')}}">Danh sách đăng ký hãng xe</a></li>
-                                <li><a href="{{URL::to('/listbandoc-show/0')}}">Quản lý bạn đọc</a></li>
+                                <li><a href="{{URL::to('/listbandoc-show/0')}}">Danh sách hãng xe</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                                <span>Tuyến xe</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('/dstuyen')}}">Danh sách tuyến xe</a></li>
+                                <li><a href="{{URL::to('/view-themtuyen')}}">Thêm tuyến</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">

@@ -51,7 +51,7 @@ $quyen = Session::get('quyen');
             <div class="col-md-5">
                 @if($id)
                 <ul style="margin-top: 50px; margin-left: 20px;">
-                    <li class="lihd"><a class="menuhd" href="{{URL::to('/home')}}">Trang chủ</a></li>
+                    <li class="lihd"><a class="menuhd" href="{{URL::to('/')}}">Trang chủ</a></li>
                     <li class="lihd"><a class="menuhd" href="{{URL::to('/trangthongbao')}}">Thông báo</a></li>
                     <li class="lihd"><a class="menuhd" href="#news">Giới thiệu</a></li>
                     <li class="lihd" style="margin-top: 7px; margin-left: 50px;">
@@ -62,7 +62,7 @@ $quyen = Session::get('quyen');
                 </ul>
                 @else
                 <ul style="margin-top: 50px; margin-left: -5px;">
-                    <li class="lihd"><a class="menuhd" href="{{URL::to('/home')}}">Trang chủ</a></li>
+                    <li class="lihd"><a class="menuhd" href="{{URL::to('/')}}">Trang chủ</a></li>
                     <li class="lihd"><a class="menuhd" href="{{URL::to('/trangthongbao')}}">Thông báo</a></li>
                     <li class="lihd"><a class="menuhd" href="#news">Giới thiệu</a></li>
                     <li class="lihd"><a class="menuhd" href="{{URL::to('/login')}}">Đăng nhập/Đăng ký</a></li>

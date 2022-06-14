@@ -31,7 +31,7 @@ class TrangChuController extends Controller
             if ($result->chucvu == 5 || $result->chucvu == 6 || $result->chucvu == 7 || $result->chucvu == 8)
                 return Redirect::to('/trangchinh');
             else
-                return Redirect::to('/home');
+                return Redirect::to('/');
         } else
             return Redirect::to('/login');
     }
@@ -50,7 +50,7 @@ class TrangChuController extends Controller
     {
         Session::put('id', null);
         Session::put('quyen', null);
-        return Redirect::to('/home');
+        return Redirect::to('/');
     }
     //trang thông báo
     public function trangthongbao()

@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-4"></div>
             <div class="col-md-5 form-dn">
                 <h3 style="font-size: 20px; text-align: left;">Đăng ký</h3>
-                <form method="get" action="{{URL::to('/home')}}">
+                <form method="get" action="{{URL::to('/')}}">
                     <input type="text" class="form-control " style="margin-top: 35px; height: 40px; " placeholder="Họ tên">
                     <input type="text" class="form-control " style="margin-top: 15px; height: 40px; " placeholder="Tài khoản">
                     <input type="password" class="form-control " style="margin-top: 15px; height: 40px; " placeholder="Mật khẩu">

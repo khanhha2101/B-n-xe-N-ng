@@ -1,42 +1,5 @@
 @extends('home_layout')
 @section('home_content')
-<style>
-	* {
-		/* font-family: "Poppins", sans-serif; */
-	}
-
-	.boxtc1 {
-		background-color: #024751;
-		border-radius: 5px;
-		height: 150px;
-		padding-top: 55px;
-
-	}
-
-	.inputText {
-		height: 40px;
-
-	}
-	.chunho {
-        font-size: 12px;
-        color: #9B9B9B;
-        padding-top: 10px;
-    }
-	.timkiem{
-		color: white;
-	}
-	.timkiem:hover{
-		text-decoration: none;
-		color: white;
-	}
-	.btn-tim {
-        height: 40px;
-        background-color: #CBBCF0;
-        color: white;
-        border-radius: 5px;
-        border: none;
-    }
-</style>
 <div class="mainhd" style="padding-top: 20px; background-color: white;">
 	<div class="row" style="margin-top: 0px; margin-left: -30px;">
 		<div class="col-md-2">
@@ -50,16 +13,16 @@
 		<div class="boxtc1">
 			<div class="col-md-1"></div>
 			<div class="col-md-4">
-				<input type="text" class="form-control inputText" placeholder="Nhập điểm đến">
+				<input type="text" class="form-control inputText4" placeholder="Nhập điểm đến">
 			</div>
 			<div class="col-md-1">
 				<img src="{{asset('public/frontend/img/vector2.png')}}" alt="">
 			</div>
 			<div class="col-md-4">
-				<input type="date" class="form-control inputText" placeholder="Ngày đi">
+				<input type="date" class="form-control inputText4" placeholder="Ngày đi">
 			</div>
 			<div class="col-md-2">
-				<button class="btn-xanh"><a href="{{URL::to('/trangtimkiem')}}" class="timkiem">Tìm vé xe</a></button>
+				<button class="btn-xanh"><a href="{{URL::to('/trangtimkiem')}}" class="timkiem">Tìm chuyến</a></button>
 			</div>
 		</div>
 	</div>
@@ -72,7 +35,7 @@
 						<th>Tuyến đường</th>
 						<th>Hãng xe</th>
 						<th>Giá vé</th>
-						<th style="width:175px;"></th>
+						<th style="width:135px;"></th>
 					</tr>
 				</thead>
 				<tbody id="listBanDoc">
@@ -82,7 +45,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -91,7 +54,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -100,7 +63,7 @@
 						<td>380.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -109,7 +72,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -118,7 +81,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 				</tbody>
@@ -134,7 +97,8 @@
 						<th>Tuyến đường</th>
 						<th>Hãng xe</th>
 						<th>Giá vé</th>
-						<th style="width:175px;"></th>
+						<!-- <th style="width:175px;"></th> -->
+						<th style="width:135px;"></th>
 					</tr>
 				</thead>
 				<tbody id="listBanDoc">
@@ -144,7 +108,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -153,7 +117,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -162,7 +126,7 @@
 						<td>380.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -171,7 +135,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -180,7 +144,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -189,7 +153,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -198,7 +162,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -207,7 +171,7 @@
 						<td>380.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -216,7 +180,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 					<tr>
@@ -225,7 +189,7 @@
 						<td>365.000₫</td>
 						<td>
                             <button class="btn-xanh">Chọn ngay</button>
-                            <button class="btn-tim">Xem</button>
+                            <!-- <button class="btn-tim">Xem</button> -->
                         </td>
 					</tr>
 				</tbody>

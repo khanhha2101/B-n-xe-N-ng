@@ -19,3 +19,36 @@
     border-radius: 5px;
     border: none;
 }
+
+.chunho {
+    font-size: 12px;
+    color: #9B9B9B;
+    padding-top: 10px;
+}
+
+.boxtc1 {
+    background-color: #024751;
+    border-radius: 5px;
+    height: 150px;
+    padding-top: 55px;
+}
+
+.inputText4 {
+    height: 40px;
+}
+
+.timkiem {
+    color: white;
+}
+
+.timkiem:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.box-tb {
+    margin-top: 30px;
+    padding: 5px 5px 2px 10px;
+    border-radius: 3px;
+    -webkit-box-shadow: 2px 5px 10px 2px #d4d1d4;
+}

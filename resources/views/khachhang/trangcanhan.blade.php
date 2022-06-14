@@ -77,20 +77,6 @@
         margin-bottom: 8px;
     }
 
-    .chunho {
-        font-size: 12px;
-        color: #9B9B9B;
-        padding-top: 10px;
-    }
-
-    .btn-xanh2 {
-        height: 40px;
-        background-color: #05A162;
-        color: white;
-        border-radius: 5px;
-        border: none;
-    }
-
     .btn1 {
         margin-top: 45px;
         height: 35px;
@@ -218,7 +204,7 @@ $quyen = Session::get('quyen');
                     <div class="row">
                         <div class="col-md-1"><img src="{{asset('public/frontend/img/iconuser2.png')}}" alt=""></div>
                         <div class="col-md-5">
-                            <button class="btn-xanh2 btn1">Chọn ảnh</button>
+                            <button class="btn-xanh btn1">Chọn ảnh</button>
                         </div>
                     </div>
                     <div class="row" style="margin-top: 30px;">
@@ -254,7 +240,7 @@ $quyen = Session::get('quyen');
                     @endif
                     <div class="row" style="margin-top: 50px;">
                         <div class="col-md-2">
-                            <button class="btn-xanh2 btn2">Cập nhật</button>
+                            <button class="btn-xanh btn2">Cập nhật</button>
                         </div>
                     </div>
                 </div>
@@ -270,7 +256,7 @@ $quyen = Session::get('quyen');
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn-xanh2 btn2">Đăng ký</button>
+                            <button class="btn-xanh btn2">Đăng ký</button>
                         </div>
                     </div>
                 </div>
@@ -280,7 +266,7 @@ $quyen = Session::get('quyen');
                 @if($quyen == 3)
                 <!-- chuyến -->
                 <div class="tab-pane">
-                    <p style="font-size: 14px;">Giai đoạn: 01/06/2022 - 30/06/2022</p>
+                    <!-- <p style="font-size: 14px;">Giai đoạn: 01/06/2022 - 30/06/2022</p> -->
                     <div class="table-responsive">
                         <table class="table table-striped b-t b-light">
                             <thead>
@@ -288,10 +274,10 @@ $quyen = Session::get('quyen');
                                     <th>STT</th>
                                     <th>Mã số chuyến</th>
                                     <th>Tuyến đường</th>
-                                    <th>Thứ</th>
+                                    <th>Lịch trình</th>
                                     <th>Thời gian</th>
                                     <th>Giá vé</th>
-                                    <th style="width:135px;"></th>
+                                    <th style="width:155px;"></th>
                                 </tr>
                             </thead>
                             <tbody id="listBanDoc">
@@ -299,44 +285,52 @@ $quyen = Session::get('quyen');
                                     <td>1</td>
                                     <td>CX002</td>
                                     <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                                    <td>Thứ 2</td>
+                                    <td>Thứ 2, 4, 6</td>
                                     <td>8h - 14h</td>
                                     <td>365.000₫</td>
-                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                    <td><button class="btn-xanh">Chi tiết</button>
+                                        <button class="btn-tim">Xoá</button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>CX005</td>
                                     <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                                    <td>Thứ 4</td>
+                                    <td>Mỗi ngày</td>
                                     <td>8h - 14h</td>
                                     <td>365.000₫</td>
-                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                    <td><button class="btn-xanh">Chi tiết</button>
+                                        <button class="btn-tim">Xoá</button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>CX006</td>
                                     <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                                    <td>Thứ 5</td>
+                                    <td>Thứ 3, 5, 7</td>
                                     <td>8h - 14h</td>
                                     <td>365.000₫</td>
-                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                    <td><button class="btn-xanh">Chi tiết</button>
+                                        <button class="btn-tim">Xoá</button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td>CX008</td>
                                     <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                                    <td>Thứ 7</td>
+                                    <td>Mỗi ngày</td>
                                     <td>8h - 14h</td>
                                     <td>365.000₫</td>
-                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                    <td><button class="btn-xanh">Chi tiết</button>
+                                        <button class="btn-tim">Xoá</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn-xanh2 btn2">Thêm chuyến</button>
+                            <button class="btn-xanh btn2">Thêm chuyến</button>
                         </div>
                     </div>
                 </div>
@@ -348,7 +342,8 @@ $quyen = Session::get('quyen');
                                 <tr>
                                     <th>STT</th>
                                     <th>Mã số tuyến</th>
-                                    <th>Tuyến đường</th>
+                                    <th>Nơi đi</th>
+                                    <th>Nơi đến</th>
                                     <!-- <th style="width:135px;"></th> -->
                                 </tr>
                             </thead>
@@ -356,30 +351,34 @@ $quyen = Session::get('quyen');
                                 <tr>
                                     <td>1</td>
                                     <td>T002</td>
-                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+                                    <td>Đà Nẵng</td>
+                                    <td>Hà Nội</td>
                                     <!-- <td><button class="btn-xanh">Chi tiết</button></td> -->
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>T005</td>
-                                    <td>Bến xe trung tâm Đà Nẵng đi Sài Gòn</td>
+                                    <td>Đà Nẵng</td>
+                                    <td>Sài Gòn</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>T007</td>
-                                    <td>Bến xe trung tâm Đà Nẵng đi Hải Phòng</td>
+                                    <td>Đà Nẵng</td>
+                                    <td>Quảng Nam</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td>T009</td>
-                                    <td>Bến xe trung tâm Đà Nẵng đi Quảng Nam</td>
+                                    <td>Đà Nẵng</td>
+                                    <td>Huế</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn-xanh2 btn2">Thêm tuyến</button>
+                            <button class="btn-xanh btn2">Đăng ký tuyến</button>
                         </div>
                     </div>
                 </div>
@@ -440,7 +439,7 @@ $quyen = Session::get('quyen');
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn-xanh2 btn2">Thêm xe</button>
+                            <button class="btn-xanh btn2">Thêm xe</button>
                         </div>
                     </div>
                 </div>
@@ -501,7 +500,7 @@ $quyen = Session::get('quyen');
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn-xanh2 btn2">Đăng ký</button>
+                            <button class="btn-xanh btn2">Đăng ký</button>
                         </div>
                     </div>
                 </div>
@@ -581,7 +580,7 @@ $quyen = Session::get('quyen');
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn-xanh2 btn2">Gửi thông báo</button>
+                            <button class="btn-xanh btn2">Gửi thông báo</button>
                         </div>
                     </div>
                 </div>

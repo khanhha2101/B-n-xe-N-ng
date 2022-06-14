@@ -5,20 +5,9 @@
         font-size: 12px;
         color: #9B9B9B;
     }
-
-    .box-tb {
-        /* background-color: #E3D8FE; */
-        padding: 5px 5px 2px 10px;
-        border-radius: 3px;
-        box-shadow: 1px 1px 1px 1px #aaa;
-    }
-
     .thongbao {
         height: 30px;
-        /* background-color: #D2FEE1; */
-        /* color: white; */
         padding-top: 5px;
-        /* padding-left: 5px; */
         border-radius: 3px;
     }
 </style>
@@ -44,29 +33,29 @@
         </div>
     </div>
 
-    <div class="row box-tb" style="margin-top: 20px; ">
+    <div class="row box-tb" >
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gah giua hrgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJ</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
-    <div class="row box-tb" style="margin-top: 20px; ">
+    <div class="row box-tb" >
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gah giu gu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
-    <div class="row box-tb" style="margin-top: 20px; ">
+    <div class="row box-tb">
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gahgi uah rgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJathathae dhgadg</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
-    <div class="row box-tb" style="margin-top: 20px; ">
+    <div class="row box-tb" >
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gahgiuahrgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJ</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
-    <div class="row box-tb" style="margin-top: 20px; ">
+    <div class="row box-tb" >
         <h4 class="thongbao">Thông báo abc</h4>
-        <p>Thông báo jsfdhkjghdfughadgiadjfinsdlrge jehgoaeh gaherg uaheroigha ủghauehrg ;aehrg uahergahdkfjg agh auihg iuah guiahjk gạdkfg ạkdfh gah giuah rgu ahdiu ghah ga hga hiughawirg hklajshg liuahrgi ig i áhgb gjvWUIGHwrgiHWGIGKJ GJ</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
 
