@@ -10,63 +10,18 @@
     // }
 
     ?>
-
-    <div class="row">
-        <div class="market-updates">
-            <div class="col-md-3 market-update-gd">
-                <div class="market-update-block clr-block-2">
-                    <div class="col-md-4 market-update-right">
-                        <i class="fa fa-eye"> </i>
-                    </div>
-                    <div class="col-md-8 market-update-left">
-                        <h4>Chuyến xe</h4>
-                        <h3>{{$cx}} </h3>
-                        <p></p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-3 market-update-gd">
-                <div class="market-update-block clr-block-1">
-                    <div class="col-md-4 market-update-right">
-                        <i class="fa fa-users"></i>
-                    </div>
-                    <div class="col-md-8 market-update-left">
-                        <h4>Khách hàng</h4>
-                        <h3> {{$kh}}</h3>
-                        <p></p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-3 market-update-gd">
-                <div class="market-update-block clr-block-3">
-                    <div class="col-md-4 market-update-right">
-                        <i class="fa fa-usd"></i>
-                    </div>
-                    <div class="col-md-8 market-update-left">
-                        <h4>Doanh thu</h4>
-                        <h3>{{$dt}}đ </h3>
-                        <p><?php  ?></p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="panel panel-default">
         <div class="panel-heading">
-            <!-- Danh sách thông báo -->
+            Danh sách đăng ký hãng xe
         </div>
         <div class="row w3-res-tb">
             <div class="col-sm-5 m-b-xs">
                 <select class="input-sm form-control w-sm inline v-middle" onchange="location = '{{URL::to('/listbandoc-show/')}}' + '/' + this.value;">
                     <option></option>
                     <option value="0">Tất cả</option>
-
-                    <option value="..">..</option>
-
+					
+					<option value="..">..</option>
+					
                 </select>
                 <button class="btn btn-sm btn-default">Apply</button>
             </div>
@@ -86,25 +41,33 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Chuyến xe</th>
-                        <th>Thời gian</th>
-                        <th>Người đăng</th>
+                        <th>Mã ND</th>
+                        <th>Tên người dùng</th>
+                        <th>Tên hãng xe</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ trụ sở</th>
                         <th style="width:150px;"></th>
                     </tr>
                 </thead>
                 <tbody id="listBanDoc">
+                    <?php $i = 1 ?>
+                    @foreach($hangxe as $key => $value)
                     <tr>
-                        <td>1</td>
-                        <td>CX002 - Đà Nẵng -> Hà Nội</td>
-                        <td>01/06/2022</td>
-                        <td>Nguyễn Văn A</td>
+                        <td><?php echo($i) ?></td>
+                        <td>ND{{$value->mand}}</td>
+                        <td>{{$value->hoten}}</td>
+                        <td>{{$value->hangxe}}</td>
+                        <td>{{$value->sdt}}</td>
+                        <td>{{$value->diachi}}</td>
                         <td>
 
-                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/edit-bandoc/')}}"> Xem </a></button>
+                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/chuyenxe/'.$value->mand)}}">Xem</a></button>
 
-                            <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/del-bandoc/')}}">Xóa</a></button>
+                            <!-- <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/del-bandoc/')}}">Xóa</a></button> -->
                         </td>
                     </tr>
+                    <?php $i += 1 ?>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -128,5 +91,6 @@
         </footer>
     </div>
 </div>
+
 
 @endsection

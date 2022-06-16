@@ -13,7 +13,7 @@
 		<div class="boxtc1">
 			<div class="col-md-1"></div>
 			<div class="col-md-4">
-				<input type="text" class="form-control inputText4" placeholder="Nhập điểm đến">
+				<input type="text" class="form-control inputText4" placeholder="Nhập điểm đến" >
 			</div>
 			<div class="col-md-1">
 				<img src="{{asset('public/frontend/img/vector2.png')}}" alt="">

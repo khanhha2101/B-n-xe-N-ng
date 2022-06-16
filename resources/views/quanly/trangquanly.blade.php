@@ -23,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="{{asset('public/backend/css/style.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('public/backend/css/style-responsive.css')}}" rel="stylesheet" />
     <!-- <link href="{{asset('public/frontend/css/style.css')}}" rel="stylesheet" /> -->
+    <link href="{{asset('public/frontend/css/quanlycss.css')}}" rel="stylesheet" />
     <!-- font CSS -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <!-- font-awesome icons -->
@@ -151,11 +152,11 @@ $quyen = Session::get('quyen');
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-th"></i>
-                                <span>Danh sách hãng xe</span>
+                                <span>Hãng xe</span>
                             </a>
                             <ul class="sub">
+                                <li><a href="{{URL::to('/dshangxe')}}">Danh sách hãng xe</a></li>
                                 <li><a href="{{URL::to('/dsdkhangxe')}}">Danh sách đăng ký hãng xe</a></li>
-                                <li><a href="{{URL::to('/listbandoc-show/0')}}">Danh sách hãng xe</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -187,8 +188,8 @@ $quyen = Session::get('quyen');
                             </a>
                         </li>
 
-                        
-                        
+
+
                         <li>
                             <a href="{{URL::to('/dangxuat')}}">
                                 <i class="fa fa-cog"></i>

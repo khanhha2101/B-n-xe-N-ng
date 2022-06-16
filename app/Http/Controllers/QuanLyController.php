@@ -13,23 +13,47 @@ class QuanLyController extends Controller
     //
     public function trangchinh()
     {
-        return view('quanly.trangchinh');
+        $month = date('m');
+        $khachhang = DB::table('nguoidung')->where('chucvu', 2)->count();
+        $chuyenxe = DB::table('chuyenxe')->where('trangthai', 0)->count();
+        $get = DB::table('chitietve')->get();
+        $doanhthu = 0;
+        foreach ($get as $value) {
+            $a = str_split($value->tgdat);
+            $thang = $a[5] . $a[6];
+            if ($month == $thang)
+                $doanhthu += $value->giave * $value->slve;
+        }
+        return view('quanly.trangchinh')->with('kh', $khachhang)->with('cx', $chuyenxe)->with('dt', $doanhthu);
     }
     //
     public function trangquanly()
     {
         return view('quanly.trangquanly');
     }
+
+
     //trang cá nhân
     public function trangcanhan()
     {
-        return view('quanly.trangcanhan');
+        $mand = Session::get('id');
+        $get = DB::table('nguoidung')->where('mand', $mand)->first();
+        return view('quanly.trangcanhan')->with('thongtin', $get);
     }
-    //danh sách đăng ký hãng xe
-    public function dsdkhangxe()
+    public function sua_thongtin(Request $request)
     {
-        return view('quanly.dsdangkyhangxe');
+        $mand = Session::get('id');
+        $hoten = $request->hoten;
+        $gioitinh = $request->gioitinh;
+        $ngaysinh = $request->ngaysinh;
+        $email = $request->email;
+        $diachi = $request->diachi;
+        $sdt = $request->sdt;
+        $cmnd = $request->cmnd;
+        DB::table('nguoidung')->where('mand', $mand)->update(['hoten' => $hoten, 'gioitinh' => $gioitinh, 'ngaysinh' => $ngaysinh, 'email' => $email, 'diachi' => $diachi, 'sdt' => $sdt, 'cmnd' => $cmnd]);
+        return Redirect::to('/trangcanhan');
     }
+
 
     //---tuyến---
     public function dstuyen()
@@ -70,9 +94,106 @@ class QuanLyController extends Controller
     }
     public function xoa_tuyen($mat)
     {
-        DB::table('tuyen')-> where('mat',$mat)->delete();
+        DB::table('tuyen')->where('mat', $mat)->delete();
         return Redirect::to('/dstuyen');
     }
+
+
+    //---hãng xe---
+    public function dsdkhangxe()
+    {
+        $get = DB::table('nguoidung')->where('trangthai', 1)->get();
+        return view('quanly.hangxe.dsdangkyhangxe')->with('hangxe', $get);
+    }
+    public function dshangxe()
+    {
+        $get = DB::table('nguoidung')->where('chucvu', 3)->where('trangthai', 0)->get();
+        return view('quanly.hangxe.dshangxe')->with('hangxe', $get);
+    }
+    public function duyet_hangxe($mand)
+    {
+        DB::table('nguoidung')->where('mand', $mand)->update(['trangthai' => 0, 'chucvu' => 3]);
+        return Redirect::to('/dsdkhangxe');
+    }
+    public function xoa_hangxe($mand)
+    {
+        DB::table('nguoidung')->where('mand', $mand)->update(['trangthai' => 0]);
+        return Redirect::to('/dsdkhangxe');
+    }
+
+
+    //---chuyến xe---
+    public function chuyenxe($mand)
+    {
+        $all = DB::table('chuyenxe')
+            ->join('tuyen', 'tuyen.mat', '=', 'chuyenxe.mat')
+            ->join('xe', 'xe.maxe', '=', 'chuyenxe.maxe')
+            ->join('nguoidung', 'nguoidung.mand', '=', 'xe.mand')->get();
+        $trangthais = array();
+        foreach ($all as $key => $value) {
+            $get = DB::table('chuyenxe')->where('macx', $value->macx)->first();
+            $trangthais[$key] = $get->trangthai;
+        }
+
+        //lấy lịch trình
+        $lichtrinh = array();
+        foreach ($all as $key => $value) {
+            $get = DB::table('lichtrinh')->where('macx', $value->macx)->get();
+            $lt = "Thứ";
+            foreach ($get as $val) {
+                if ($val->ngaychay == "Mỗi ngày")
+                    $lt = "Mỗi ngày";
+                else
+                    $lt .= " , " . $val->ngaychay;
+            }
+            $lichtrinh[$key] = $lt;
+        }
+
+        return view('quanly.hangxe.chuyenxe')->with('chuyenxe', $all)->with('lichtrinh', $lichtrinh)->with('trangthai', $trangthais);
+    }
+    public function xoa_chuyenxe($macx, $mand)
+    {
+        DB::table('lichtrinh')->where('macx', $macx)->delete();
+        DB::table('chuyenxe')->where('macx', $macx)->delete();
+        return Redirect::to('/chuyenxe' . '/' . $mand);
+    }
+    public function duyet_chuyenxe($macx, $mand)
+    {
+        DB::table('chuyenxe')->where('macx', $macx)->update(['trangthai' => 0]);
+        return Redirect::to('/chuyenxe' . '/' . $mand);
+    }
+    public function xem_chuyenxe($macx, $mand)
+    {
+        $chuyenxe = DB::table('chuyenxe')
+            ->join('tuyen', 'tuyen.mat', '=', 'chuyenxe.mat')
+            ->join('xe', 'xe.maxe', '=', 'chuyenxe.maxe')
+            ->where('macx', $macx)->first();
+
+        //lấy tổng số ghế ngồi
+        $soghe = 0;
+        $get = DB::table('chitietxe')->where('maxe', $chuyenxe->macx)->get();
+        foreach ($get as $value)
+            $soghe += $value->slghe;
+
+        //lấy lịch trình
+        $get = DB::table('lichtrinh')->where('macx', $macx)->get();
+        $lt = "Thứ";
+        foreach ($get as $val) {
+            if ($val->ngaychay == "Mỗi ngày")
+                $lt = "Mỗi ngày";
+            else
+                $lt .= " , " . $val->ngaychay;
+        }
+
+        //lấy tài xế
+        $taixe = DB::table('taixe')
+            ->join('nguoidung', 'taixe.mand', '=', 'nguoidung.mand')
+            ->where('macx', $macx)->get();
+
+        return view('quanly.hangxe.ctchuyenxe')->with('chuyenxe', $chuyenxe)->with('lichtrinh', $lt)->with('mand', $mand)->with('taixe', $taixe)->with('soghe', $soghe);
+    }
+
+
 
     //----------NHÂN VIÊN-----------
     //đăng thông báo

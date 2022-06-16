@@ -41,27 +41,33 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên chủ hãng xe</th>
+                        <th>Mã ND</th>
+                        <th>Tên người dùng</th>
                         <th>Tên hãng xe</th>
                         <th>Số điện thoại</th>
                         <th>Địa chỉ trụ sở</th>
-                        <th style="width:150px;"></th>
+                        <th style="width:160px;"></th>
                     </tr>
                 </thead>
                 <tbody id="listBanDoc">
+                    <?php $i = 1 ?>
+                    @foreach($hangxe as $key => $value)
                     <tr>
-                        <td>1</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>Thuỳ Dương</td>
-                        <td>03482476445</td>
-                        <td>02 Thanh Sơn, Thanh Bình, Hải Châu, Đà Nẵng</td>
+                        <td><?php echo($i) ?></td>
+                        <td>ND{{$value->mand}}</td>
+                        <td>{{$value->hoten}}</td>
+                        <td>{{$value->hangxe}}</td>
+                        <td>{{$value->sdt}}</td>
+                        <td>{{$value->diachi}}</td>
                         <td>
 
-                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/edit-bandoc/')}}"> Xem </a></button>
+                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/duyet-hangxe/'.$value->mand)}}"> Duyệt </a></button>
 
-                            <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/del-bandoc/')}}">Xóa</a></button>
+                            <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/xoa-hangxe/'.$value->mand)}}">Xóa</a></button>
                         </td>
                     </tr>
+                    <?php $i += 1 ?>
+                    @endforeach
                 </tbody>
             </table>
         </div>

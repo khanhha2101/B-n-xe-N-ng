@@ -3,7 +3,6 @@
 <style>
     .bodycn {
         display: flex;
-        font-family: "Poppins", sans-serif;
         height: 750px;
     }
 
