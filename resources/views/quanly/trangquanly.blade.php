@@ -44,6 +44,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+   <!-- ajax -->
+   <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
     <style>
         * {
             font-family: "Poppins", sans-serif;
@@ -106,12 +109,50 @@ $quyen = Session::get('quyen');
                 <!-- sidebar menu start-->
                 <div class="leftside-navigation">
                     <ul class="sidebar-menu" id="nav-accordion">
+                        @if($quyen == 7 || $quyen == 8)
                         <li>
                             <a class="active" href="{{URL::to('/trangchinh')}}">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
+                        @endif
+
+                        <!-- chủ hãng xe -->
+                        @if($quyen == 3)
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-th"></i>
+                                <span>Chuyến xe</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('/hx-viewthemchuyen')}}">Đăng ký chuyến xe</a></li>
+                                <li><a href="{{URL::to('/hx-dschuyen')}}">Danh sách chuyến xe</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-user"></i>
+                                <span>Tài xế</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('/hx-viewthemtaixe')}}">Thêm tài xế</a></li>
+                                <li><a href="{{URL::to('/hx-dstaixe')}}">Danh sách tài xế</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-cog"></i>
+                                <span>Xe</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('/hx-viewthemxe')}}">Thêm xe</a></li>
+                                <li><a href="{{URL::to('/hx-dsxe')}}">Danh sách xe</a></li>
+                            </ul>
+                        </li>
+                        @endif
+
+
                         <!-- nhân viên trực bến -->
                         @if($quyen == 5)
                         <li class="sub-menu">
@@ -181,15 +222,13 @@ $quyen = Session::get('quyen');
                         </li>
                         @endif
 
+
                         <li>
                             <a href="{{URL::to('/trangcanhan')}}">
                                 <i class="fa fa-user"></i>
                                 <span>Thông tin cá nhân</span>
                             </a>
                         </li>
-
-
-
                         <li>
                             <a href="{{URL::to('/dangxuat')}}">
                                 <i class="fa fa-cog"></i>

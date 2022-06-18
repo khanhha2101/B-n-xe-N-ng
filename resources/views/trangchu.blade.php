@@ -40,7 +40,7 @@
 				</thead>
 				<tbody id="listBanDoc">
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+						<td>Bến xe khách Đà Nẵng đi Hà Nội</td>
 						<td>Tùng Vy</td>
 						<td>365.000₫</td>
 						<td>
@@ -49,7 +49,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+						<td>Bến xe khách Đà Nẵng đi Hà Nội</td>
 						<td>Hoàng Vân - Đà Nẵng</td>
 						<td>365.000₫</td>
 						<td>
@@ -58,7 +58,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+						<td>Bến xe khách Đà Nẵng đi Hà Nội</td>
 						<td>Đại Phát</td>
 						<td>380.000₫</td>
 						<td>
@@ -67,7 +67,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+						<td>Bến xe khách Đà Nẵng đi Hà Nội</td>
 						<td>Vân Khôi</td>
 						<td>365.000₫</td>
 						<td>
@@ -76,7 +76,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+						<td>Bến xe khách Đà Nẵng đi Hà Nội</td>
 						<td>Tuấn Nam</td>
 						<td>365.000₫</td>
 						<td>
@@ -103,7 +103,7 @@
 				</thead>
 				<tbody id="listBanDoc">
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Sài Gòn</td>
+						<td>Bến xe khách Đà Nẵng đi Sài Gòn</td>
 						<td>Tùng Vy</td>
 						<td>365.000₫</td>
 						<td>
@@ -112,7 +112,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hải Phòng</td>
+						<td>Bến xe khách Đà Nẵng đi Hải Phòng</td>
 						<td>Hoàng Vân - Đà Nẵng</td>
 						<td>365.000₫</td>
 						<td>
@@ -121,7 +121,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Nha Trang</td>
+						<td>Bến xe khách Đà Nẵng đi Nha Trang</td>
 						<td>Đại Phát</td>
 						<td>380.000₫</td>
 						<td>
@@ -130,7 +130,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Cam Ranh</td>
+						<td>Bến xe khách Đà Nẵng đi Cam Ranh</td>
 						<td>Vân Khôi</td>
 						<td>365.000₫</td>
 						<td>
@@ -139,7 +139,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+						<td>Bến xe khách Đà Nẵng đi Hà Nội</td>
 						<td>Tuấn Nam</td>
 						<td>365.000₫</td>
 						<td>
@@ -148,7 +148,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Sài Gòn</td>
+						<td>Bến xe khách Đà Nẵng đi Sài Gòn</td>
 						<td>Tùng Vy</td>
 						<td>365.000₫</td>
 						<td>
@@ -157,7 +157,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hải Phòng</td>
+						<td>Bến xe khách Đà Nẵng đi Hải Phòng</td>
 						<td>Hoàng Vân - Đà Nẵng</td>
 						<td>365.000₫</td>
 						<td>
@@ -166,7 +166,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Nha Trang</td>
+						<td>Bến xe khách Đà Nẵng đi Nha Trang</td>
 						<td>Đại Phát</td>
 						<td>380.000₫</td>
 						<td>
@@ -175,7 +175,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Cam Ranh</td>
+						<td>Bến xe khách Đà Nẵng đi Cam Ranh</td>
 						<td>Vân Khôi</td>
 						<td>365.000₫</td>
 						<td>
@@ -184,7 +184,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
+						<td>Bến xe khách Đà Nẵng đi Hà Nội</td>
 						<td>Tuấn Nam</td>
 						<td>365.000₫</td>
 						<td>

@@ -25,14 +25,24 @@ class TrangChuController extends Controller
             ->where('taikhoan', $taikhoan)->where('matkhau', $matkhau)->first();
 
         if ($result) {
+            
             Session::put('id', $result->mand);
             Session::put('quyen', $result->chucvu);
 
-            if ($result->chucvu == 5 || $result->chucvu == 6 || $result->chucvu == 7 || $result->chucvu == 8)
+            if ($result->chucvu == 7 || $result->chucvu == 8)
+
                 return Redirect::to('/trangchinh');
+            else if ($result->chucvu == 5 || $result->chucvu == 6)
+
+                return Redirect::to('/trangchinh');
+            else if ($result->chucvu == 3)
+
+                return Redirect::to('/hx-dschuyen');
             else
+
                 return Redirect::to('/');
         } else
+
             return Redirect::to('/login');
     }
     //login

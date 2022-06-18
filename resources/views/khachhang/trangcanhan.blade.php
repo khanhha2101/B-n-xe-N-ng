@@ -27,7 +27,7 @@
     }
 
     .tab-item {
-        min-width: 80px;
+        min-width: 60px;
         padding: 16px 20px 11px 20px;
         font-size: 18px;
         text-align: center;
@@ -96,10 +96,10 @@
     }
 
     .thoat {
-        min-width: 80px;
+        /* min-width: 80px; */
         padding: 16px 20px 11px 20px;
-        font-size: 18px;
-        text-align: center;
+        font-size: 16px;
+        /* text-align: center; */
         color: #024751;
         background-color: #fff;
         border-top-left-radius: 5px;
@@ -143,8 +143,9 @@ $quyen = Session::get('quyen');
     </div>
     <div class="bodycn">
 
-        <div>
+        <div class="row">
             <!-- Tab items -->
+
             <div class="tabs">
                 <!-- khách hàng -->
                 <div class="tab-item active">
@@ -189,23 +190,26 @@ $quyen = Session::get('quyen');
                     Thông báo sự cố
                 </div>
                 @endif
-                <div class="line"></div>
+
                 <div class="thoat">
                     <i class="tab-icon fas fa-cog"></i>
                     <a href="{{URL::to('/dangxuat')}}" class="thea">Đăng xuất</a>
                 </div>
+                <div class="line"></div>
             </div>
+
+
 
             <!-- Tab content -->
             <div class="tab-content">
                 <!-- thông tin cá nhân -->
                 <div class="tab-pane active">
-                    <div class="row">
-                        <div class="col-md-1"><img src="{{asset('public/frontend/img/iconuser2.png')}}" alt=""></div>
-                        <div class="col-md-5">
-                            <button class="btn-xanh btn1">Chọn ảnh</button>
-                        </div>
-                    </div>
+                    <!-- <div class="row">
+                            <div class="col-md-1"><img src="{{asset('public/frontend/img/iconuser2.png')}}" alt=""></div>
+                            <div class="col-md-5">
+                                <button class="btn-xanh btn1">Chọn ảnh</button>
+                            </div>
+                        </div> -->
                     <div class="row" style="margin-top: 30px;">
                         <div class="col-md-6">
                             <input type="text" class="form-control inputText" placeholder="Họ tên">
@@ -508,7 +512,6 @@ $quyen = Session::get('quyen');
                 @if($quyen == 4)
                 <!-- lịch làm việc -->
                 <div class="tab-pane">
-                    <p style="font-size: 14px;">Giai đoạn: 01/06/2022 - 30/06/2022</p>
                     <div class="table-responsive">
                         <table class="table table-striped b-t b-light">
                             <thead>
@@ -585,6 +588,7 @@ $quyen = Session::get('quyen');
                 </div>
                 @endif
             </div>
+
         </div>
     </div>
 

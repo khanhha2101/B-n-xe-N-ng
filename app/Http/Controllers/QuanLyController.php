@@ -24,7 +24,44 @@ class QuanLyController extends Controller
             if ($month == $thang)
                 $doanhthu += $value->giave * $value->slve;
         }
-        return view('quanly.trangchinh')->with('kh', $khachhang)->with('cx', $chuyenxe)->with('dt', $doanhthu);
+
+        $data = array();
+        $tong = 0;
+        $ngaytam = null;
+        $thutam = 0;
+        foreach ($get as $value) {
+
+            $a = str_split($value->tgdat);
+            $thang = $a[5] . $a[6];
+            if ($month == $thang) {
+                if ($ngaytam == null) {
+
+                    $ngaytam = $value->tgdat;
+                    $thutam += $value->giave * $value->slve;
+                } else {
+
+                    if ($ngaytam == $value->tgdat) {
+
+                        $thutam += $value->giave * $value->slve;
+                    } else {
+
+                        $data[] = array(
+                            'ngay' => $ngaytam,
+                            'thu' => $thutam
+                        );
+                        $ngaytam = $value->tgdat;
+                        $thutam = $value->giave * $value->slve;
+                    }
+                }
+                $tong += $value->giave * $value->slve;
+            }
+        }
+        $data[] = array(
+            'ngay' => $ngaytam,
+            'thu' => $thutam
+        );
+
+        return view('quanly.trangchinh')->with('kh', $khachhang)->with('cx', $chuyenxe)->with('dt', $doanhthu)->with('data', $data)->with('tong', $tong);
     }
     //
     public function trangquanly()
@@ -168,10 +205,14 @@ class QuanLyController extends Controller
             ->join('tuyen', 'tuyen.mat', '=', 'chuyenxe.mat')
             ->join('xe', 'xe.maxe', '=', 'chuyenxe.maxe')
             ->where('macx', $macx)->first();
+        
+        //lấy trạng thái của chuyến xe
+        $get = DB::table('chuyenxe')->where('macx', $macx)->first();
+        $trangthai = $get->trangthai;
 
         //lấy tổng số ghế ngồi
         $soghe = 0;
-        $get = DB::table('chitietxe')->where('maxe', $chuyenxe->macx)->get();
+        $get = DB::table('chitietxe')->where('maxe', $chuyenxe->maxe)->get();
         foreach ($get as $value)
             $soghe += $value->slghe;
 
@@ -190,7 +231,67 @@ class QuanLyController extends Controller
             ->join('nguoidung', 'taixe.mand', '=', 'nguoidung.mand')
             ->where('macx', $macx)->get();
 
-        return view('quanly.hangxe.ctchuyenxe')->with('chuyenxe', $chuyenxe)->with('lichtrinh', $lt)->with('mand', $mand)->with('taixe', $taixe)->with('soghe', $soghe);
+        return view('quanly.hangxe.ctchuyenxe')->with('chuyenxe', $chuyenxe)->with('lichtrinh', $lt)->with('mand', $mand)->with('taixe', $taixe)->with('soghe', $soghe)->with('trangthai', $trangthai);
+    }
+
+
+    //---thống kê---
+    public function thongke(Request $request)
+    {
+        $month = date('m');
+        $khachhang = DB::table('nguoidung')->where('chucvu', 2)->count();
+        $chuyenxe = DB::table('chuyenxe')->where('trangthai', 0)->count();
+        $get = DB::table('chitietve')->get();
+        $doanhthu = 0;
+        foreach ($get as $value) {
+            $a = str_split($value->tgdat);
+            $thang = $a[5] . $a[6];
+            if ($month == $thang)
+                $doanhthu += $value->giave * $value->slve;
+        }
+
+        $loaitk = $request->loaitk;
+        $date1 = $request->date1;
+        $date2 = $request->date2;
+        $data = array();
+        $tong = 0;
+
+        if ($loaitk == 'Doanh thu') {
+
+            $ngaytam = null;
+            $thutam = 0;
+            foreach ($get as $value) {
+
+                if ($value->tgdat <= $date2 && $value->tgdat >= $date1) {
+                    if ($ngaytam == null) {
+
+                        $ngaytam = $value->tgdat;
+                        $thutam += $value->giave * $value->slve;
+                    } else {
+
+                        if ($ngaytam == $value->tgdat) {
+
+                            $thutam += $value->giave * $value->slve;
+                        } else {
+
+                            $data[] = array(
+                                'ngay' => $ngaytam,
+                                'thu' => $thutam
+                            );
+                            $ngaytam = $value->tgdat;
+                            $thutam = $value->giave * $value->slve;
+                        }
+                    }
+                    $tong += $value->giave * $value->slve;
+                }
+            }
+            $data[] = array(
+                'ngay' => $ngaytam,
+                'thu' => $thutam
+            );
+        }
+
+        return view('quanly.trangchinh')->with('kh', $khachhang)->with('cx', $chuyenxe)->with('dt', $doanhthu)->with('data', $data)->with('tong', $tong);
     }
 
 

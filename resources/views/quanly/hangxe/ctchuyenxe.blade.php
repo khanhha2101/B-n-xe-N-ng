@@ -1,16 +1,10 @@
 @extends('quanly.trangquanly')
 @section('admin_content')
 
-<style>
-    .btn {
-        /* font-weight: bold; */
-    }
-</style>
-
 <div class="table-agile-info">
     <div class="panel panel-default">
         <div class="panel-heading" style="height: 50px; font-weight: bold;">
-            <p style="font-size: 14px;">Thông tin xe</p>
+            <p style="font-size: 14px;">Thông tin xe </p> 
         </div>
         <div class="table-responsive">
             <table class="table table-striped b-t b-light">
@@ -93,12 +87,11 @@
             </table>
         </div>
     </div>
-
-    @if($chuyenxe->trangthai == 1)
-    <button type="submit" class="btn btn-info">Duyệt</button>
-    <button type="submit" class="btn" style="background-color: #FE8A8A; color:white;">Xoá</button>
+    @if($trangthai == 1)
+    <button type="submit" class="btn btn-info"><a href="{{URL::to('/duyet-chuyenxe/'.$chuyenxe->macx.'&'.$mand)}}"> Duyệt </a></button>
+    <button type="submit" class="btn" style="background-color: #FE8A8A; color:white;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/xoa-chuyenxe/'.$chuyenxe->macx.'&'.$mand)}}">Xóa</a></button>
     @else
-    <button type="submit" class="btn btn-info">Đóng</button>
+    <button type="submit" class="btn btn-info"><a href="{{URL::to('/chuyenxe/'.$chuyenxe->macx.'&'.$mand)}}"> Đóng </a></button>
     @endif
 </div>
 
