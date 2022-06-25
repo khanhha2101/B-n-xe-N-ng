@@ -2,17 +2,9 @@
 @section('admin_content')
 
 <div class="table-agile-info">
-    <?php
-    // $msg = Session::get('msg');
-    // if ($msg) {
-    // 	echo $msg;
-    // 	Session::put('msg', null);
-    // }
-
-    ?>
     <div class="panel panel-default">
         <div class="panel-heading">
-            Danh sách yêu cầu hỗ trợ
+            Danh sách sự cố
         </div>
         <div class="row w3-res-tb">
             <div class="col-sm-5 m-b-xs">

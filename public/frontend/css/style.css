@@ -57,3 +57,15 @@
     border-radius: 3px;
     -webkit-box-shadow: 2px 5px 10px 2px #d4d1d4;
 }
+
+.an {
+    width: 750px;
+    height: 690px;
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: solid 1.5px #8E8E8E;
+    top: -60px;
+    left: 300px;
+    font-style: bold;
+}

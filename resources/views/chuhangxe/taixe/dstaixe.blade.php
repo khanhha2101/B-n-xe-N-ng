@@ -36,48 +36,31 @@
                         <th>Mã tài xế</th>
                         <th>Họ tên</th>
                         <th>Số điện thoại</th>
+                        <th>Tuyến đang chạy</th>
                         <th>Chức vụ</th>
                         <th>Xe đang lái</th>
-                        <th style="width:135px;"></th>
+                        <th style="width:165px;"></th>
                     </tr>
                 </thead>
                 <tbody id="listBanDoc">
+                    <?php $i = 1; ?>
+                    @foreach($taixe as $key => $value)
                     <tr>
-                        <td>1</td>
-                        <td>TX002</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>0392748639</td>
-                        <td>Lái chính</td>
-                        <td>43C-294725</td>
-                        <td><button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuataixe')}}"> Chi tiết </a></button></td>
+                        <td>{{$i}}</td>
+                        <td>TX{{$value->mand}}</td>
+                        <td>{{$value->hoten}}</td>
+                        <td>{{$value->sdt}}</td>
+                        <td><?php if ($chuyenxe[$key] != null) echo 'Đà Nẵng đi ' . $chuyenxe[$key] ?></td>
+                        <td>{{$chucvu[$key]}}</td>
+                        <td>XE{{$xe[$key]}}</td>
+                        <td>
+                            <button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuataixe/'.$value->mand)}}"> Chi tiết </a></button>
+                            @if($chuyenxe[$key] == null)<button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/hx-xoataixe/'.$value->mand)}}">Xóa</a></button> @endif
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>TX005</td>
-                        <td>Nguyễn Văn B</td>
-                        <td>0392748639</td>
-                        <td>Lái chính</td>
-                        <td>43C-294725</td>
-                        <td><button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuataixe')}}"> Chi tiết </a></button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>TX008</td>
-                        <td>Nguyễn Văn C</td>
-                        <td>0392748639</td>
-                        <td>Lái chính</td>
-                        <td>43C-294725</td>
-                        <td><button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuataixe')}}"> Chi tiết </a></button></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>TX009</td>
-                        <td>Nguyễn Văn D</td>
-                        <td>0392748639</td>
-                        <td>Lái chính</td>
-                        <td>43C-294725</td>
-                        <td><button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuataixe')}}"> Chi tiết </a></button></td>
-                    </tr>
+                    <?php $i++ ?>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

@@ -13,7 +13,7 @@ class TrangChuController extends Controller
     //
     public function home()
     {
-        return view('trangchu');
+        return view('khachhang.trangchu');
     }
     //kiểm tra đăng nhập
     public function kiemtralogin(Request $request)
@@ -29,10 +29,7 @@ class TrangChuController extends Controller
             Session::put('id', $result->mand);
             Session::put('quyen', $result->chucvu);
 
-            if ($result->chucvu == 7 || $result->chucvu == 8)
-
-                return Redirect::to('/trangchinh');
-            else if ($result->chucvu == 5 || $result->chucvu == 6)
+            if ($result->chucvu == 5 || $result->chucvu == 6 || $result->chucvu == 7 || $result->chucvu == 8)
 
                 return Redirect::to('/trangchinh');
             else if ($result->chucvu == 3)
@@ -48,12 +45,12 @@ class TrangChuController extends Controller
     //login
     public function login()
     {
-        return view('login');
+        return view('khachhang.login');
     }
     //createaccount
     public function createaccount()
     {
-        return view('createaccount');
+        return view('khachhang.createaccount');
     }
     //đăng xuất
     public function dangxuat()
@@ -65,11 +62,16 @@ class TrangChuController extends Controller
     //trang thông báo
     public function trangthongbao()
     {
-        return view('trangthongbao');
+        return view('khachhang.trangthongbao');
     }
     //trang tìm kiễm
     public function trangtimkiem()
     {
-        return view('trangtimkiem');
+        return view('khachhang.trangtimkiem');
+    }
+    //trang đặt vé
+    public function trangdatve()
+    {
+        return view('khachhang.trangdatve');
     }
 }

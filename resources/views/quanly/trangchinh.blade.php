@@ -12,7 +12,7 @@
 
     <div class="row">
         <div class="market-updates">
-            <div class="col-md-3 market-update-gd">
+            <div class="col-md-4 market-update-gd">
                 <div class="market-update-block clr-block-2">
                     <div class="col-md-4 market-update-right">
                         <i class="fa fa-eye"> </i>
@@ -25,7 +25,7 @@
                     <div class="clearfix"> </div>
                 </div>
             </div>
-            <div class="col-md-3 market-update-gd">
+            <div class="col-md-4 market-update-gd">
                 <div class="market-update-block clr-block-1">
                     <div class="col-md-4 market-update-right">
                         <i class="fa fa-users"></i>
@@ -38,14 +38,14 @@
                     <div class="clearfix"> </div>
                 </div>
             </div>
-            <div class="col-md-3 market-update-gd">
+            <div class="col-md-4 market-update-gd">
                 <div class="market-update-block clr-block-3">
                     <div class="col-md-4 market-update-right">
                         <i class="fa fa-usd"></i>
                     </div>
                     <div class="col-md-8 market-update-left">
-                        <h4>Doanh thu</h4>
-                        <h3>{{$dt}}đ </h3>
+                        <h4>Doanh thu tháng <?php echo date('m') ?></h4>
+                        <h3><?php echo number_format($dt)?>đ </h3>
                         <p><?php  ?></p>
                     </div>
                     <div class="clearfix"> </div>
@@ -62,9 +62,9 @@
                         <div class="form-group col-md-3">
                             <label>Loại thống kê</label>
                             <select class="form-control" name="loaitk">
-                                <option>Doanh thu</option>
-                                <option>Khách hàng</option>
-                                <option>Chuyến xe</option>
+                                <option value="1">Theo ngày</option>
+                                <option value="2">Theo tháng</option>
+                                <option value="3">Theo năm</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
@@ -80,7 +80,7 @@
                         </div>
                 </form>
             </div>
-            <p style="text-align: right; font-size: 18px; font-weight: bold;">Tổng: {{$tong}}đ</p>
+            <p style="text-align: right; font-size: 18px; font-weight: bold;">Tổng: <?php echo number_format($tong)?>đ</p>
         </div>
         <div id="myfirstchart" style="height: 250px; margin-top: 20px;"></div>
     </div>

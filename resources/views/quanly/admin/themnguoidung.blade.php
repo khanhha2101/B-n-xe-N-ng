@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                Thông tin tài xế
+                Thêm tài khoản
             </header>
             <div class="panel-body">
                 <div class="position-center">
@@ -13,51 +13,47 @@
                         {{csrf_field()}}
                         <div class="form-group">
                             <label>Họ tên</label>
-                            <input type="text" class="form-control" name="hoten" value="{{$thongtin->hoten}}">
+                            <input type="text" class="form-control" name="hoten" >
                         </div>
                         <div class="form-group">
                             <label>Giới tính</label>
                             <select class="form-control" name="gioitinh">
-                                <?php
-                                $gioitinh = array();
-                                $gioitinh[1] = 'Nam';
-                                $gioitinh[2] = 'Nữ';
-                                $gioitinh[3] = 'Khác';
-                                foreach ($gioitinh as $key => $gt) { ?>
-
-                                    @if($gt == $thongtin->gioitinh)
-
-                                    <option selected value="<?php echo $gt ?>"><?php echo $gt ?></option>
-                                    @else
-
-                                    <option value="<?php echo $gt ?>"><?php echo $gt ?></option>
-                                    @endif
-                                <?php }
-                                ?>
+                                    <option>Nam</option>
+                                    <option>Nữ</option>
+                                    <option>Khác</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Số điện thoại</label>
-                            <input type="number" class="form-control" name="sdt" value="{{$thongtin->sdt}}">
+                            <input type="number" class="form-control" name="sdt" >
                         </div>
                         <div class="form-group">
                             <label>Ngày sinh</label>
-                            <input type="date" class="form-control" name="ngaysinh" value="{{$thongtin->ngaysinh}}">
+                            <input type="date" class="form-control" name="ngaysinh" >
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" name="email" value="{{$thongtin->email}}">
+                            <input type="email" class="form-control" name="email" >
                         </div>
                         <div class="form-group">
                             <label>CCCD/CMND</label>
-                            <input type="text" class="form-control" name="cmnd" value="{{$thongtin->cmnd}}">
+                            <input type="text" class="form-control" name="cmnd" >
                         </div>
                         <div class="form-group">
                             <label>Địa chỉ</label>
-                            <input type="text" class="form-control" name="diachi" value="{{$thongtin->diachi}}">
+                            <input type="text" class="form-control" name="diachi" >
+                        </div>
+                        <div class="form-group">
+                            <label>Chức vụ</label>
+                            <select class="form-control" name="gioitinh">
+                                    <option>Nhân viên trực bến</option>
+                                    <option>Nhân viên trực cổng</option>
+                                    <option>Quản lý</option>
+                                    <option>Admin</option>
+                            </select>
                         </div>
                         
-                        <!-- <button type="submit" class="btn btn-info">Cập nhật</button> -->
+                        <button type="submit" class="btn btn-info">Cập nhật</button>
                     </form>
                 </div>
 

@@ -42,7 +42,7 @@ class HangXeController extends Controller
             $lichtrinh[$key] = $lt;
         }
 
-        return view('quanly.chuyenxe.dschuyenxe')->with('chuyenxe', $all)->with('lichtrinh', $lichtrinh)->with('trangthai', $trangthais);
+        return view('chuhangxe.chuyenxe.dschuyenxe')->with('chuyenxe', $all)->with('lichtrinh', $lichtrinh)->with('trangthai', $trangthais);
     }
 
     public function view_themchuyenxe()
@@ -260,7 +260,7 @@ class HangXeController extends Controller
         }
         //thêm 2 tài xế đang chạy vào
         $taixe[] = DB::table('nguoidung')->where('mand', $laichinh->mand)->first();
-        $taixe[] = DB::table('nguoidung')->where('mand', $phuxe->mand)->first();        
+        $taixe[] = DB::table('nguoidung')->where('mand', $phuxe->mand)->first();
 
         $manager = view('chuhangxe.chuyenxe.suachuyenxe')
             ->with('chuyenxe', $chuyenxe)->with('lichtrinh', $lt)->with('laichinh', $laichinh)->with('phuxe', $phuxe)->with('soghe', $soghe)->with('trangthai', $trangthai)
@@ -268,31 +268,133 @@ class HangXeController extends Controller
         return view('quanly.trangquanly')->with('chuhangxe.chuyenxe.suachuyenxe', $manager);
     }
 
+    public function sua_chuyenxe(Request $request)
+    {
+        //cập nhật bảng chuyến xe
+        DB::table('chuyenxe')->where('macx', $request->macx)
+            ->update(['maxe' => $request->maxe, 'mat' => $request->mat, 'diemden' => $request->diemden, 'giodi' => $request->tgdi, 'gioden' => $request->tgden, 'giave' => $request->giave, 'trangthai' => 1]);
+
+        //cập nhật bảng tài xế
+        DB::table('taixe')->where('macx', $request->macx)->where('vitri', 'Lái chính')
+            ->update(['mand' => $request->laichinh]);
+        DB::table('taixe')->where('macx', $request->macx)->where('vitri', 'Phụ xe')
+            ->update(['mand' => $request->phuxe]);
+
+        //cập nhật bảng lịch trình
+        DB::table('lichtrinh')->where('macx', $request->macx)->delete();
+        $lich = $request->lich;
+        foreach ($lich as $val) {
+
+            $data = array();
+            $data['macx'] = $request->macx;
+            $data['ngaychay'] = $val;
+            DB::table('lichtrinh')->insert($data);
+        }
+
+        return Redirect::to('hx-viewsuachuyen/' . $request->macx);
+    }
+
+    public function xoa_chuyenxe($macx)
+    {
+        DB::table('taixe')->where('macx', $macx)->delete();
+        DB::table('lichtrinh')->where('macx', $macx)->delete();
+        DB::table('chuyenxe')->where('macx', $macx)->delete();
+
+        return Redirect::to('/hx-dschuyen');
+    }
+
 
 
     //xe
     public function dsxe()
     {
-        return view('chuhangxe.xe.dsxe');
+        $mand = Session::get('id');
+
+        //lấy danh sách xe
+        $xe = DB::table('xe')->where('mand', $mand)->get();
+        //lấy tuyến đang chạy
+        $tuyen = [];
+        foreach ($xe as $key => $value) {
+            $get = DB::table('chuyenxe')
+                ->join('tuyen', 'chuyenxe.mat', '=', 'tuyen.mat')
+                ->where('maxe', $value->maxe)->first();
+
+            if ($get)
+                $tuyen[$key] = $get->diemcuoi;
+            else
+                $tuyen[$key] = " ";
+        }
+        return view('chuhangxe.xe.dsxe')->with('xe', $xe)->with('tuyen', $tuyen);
     }
     public function view_themxe()
     {
         return view('chuhangxe.xe.themxe');
     }
-    public function them_xe()
+    public function them_xe(Request $request)
     {
-        Redirect::to('/hx-dsxe');
+        $mand = Session::get('id');
+
+        $socho = $request->socho;
+        $soghe = $request->soghe;
+
+        if ($socho[1] != null)
+
+            $sotang = 2;
+        else
+            $sotang = 1;
+
+        $data = array();
+        $data['mand'] = $mand;
+        $data['bienso'] = $request->bienso;
+        $data['phanloai'] = $request->phanloai;
+        $data['sotang'] = $sotang;
+        $result = DB::table('xe')->insert($data);
+
+        $get = DB::table('xe')->orderby('maxe', 'desc')->first();
+
+        for ($i = 0; $i < 2; $i++)
+            if ($socho[$i] != null) {
+
+                $data = array();
+                $data['maxe'] = $get->maxe;
+                $data['tang'] = $i + 1;
+                $data['slghe'] = $socho[$i];
+                $data['slghe1hang'] = $soghe[$i];
+                $result = DB::table('chitietxe')->insert($data);
+            }
+
+        return Redirect::to('hx-viewsuaxe/' . $get->maxe);
     }
-    public function view_suaxe()
+    public function view_suaxe($maxe)
     {
-        return view('chuhangxe.xe.suaxe');
+        $xe = DB::table('xe')->where('maxe', $maxe)->first();
+        $chitietxe = DB::table('chitietxe')->where('maxe', $maxe)->get();
+        return view('chuhangxe.xe.suaxe')->with('xe', $xe)->with('chitietxe', $chitietxe);
     }
-    public function sua_xe()
+    public function sua_xe(Request $request)
     {
-        Redirect::to('/hx-dsxe');
+        $socho = $request->socho;
+        $soghe = $request->soghe;
+        $bienso = $request->bienso;
+        $phanloai = $request->phanloai;
+        $maxe = $request->maxe;
+
+        $get = DB::table('xe')->where('maxe', $maxe)->update(['bienso' => $bienso, 'phanloai' => $phanloai]);
+
+        for ($i = 0; $i < count($socho); $i++)
+            if ($socho[$i] != null) {
+
+                $tang = $i + 1;
+                $get = DB::table('chitietxe')->where('maxe', $maxe)->where('tang', $tang)->update(['slghe' => $socho[$i], 'slghe1hang' => $soghe[$i]]);
+            }
+
+        return Redirect::to('hx-viewsuaxe/' . $maxe);
     }
-    public function xoa_xe()
+    public function xoa_xe($maxe)
     {
+        DB::table('chitietxe')->where('maxe', $maxe)->delete();
+        DB::table('xe')->where('maxe', $maxe)->delete();
+
         Redirect::to('/hx-dsxe');
     }
 
@@ -300,26 +402,76 @@ class HangXeController extends Controller
     //tài xế
     public function dstaixe()
     {
-        return view('chuhangxe.taixe.dstaixe');
+        $mand = Session::get('id');
+
+        $chu = DB::table('nguoidung')->where('mand', $mand)->first();
+
+        //lấy danh sách tài xế
+        $taixe = DB::table('nguoidung')->where('hangxe', $chu->hangxe)->where('chucvu', 4)->get();
+
+        //lấy danh sách chuyến xe + xe + chức vụ
+        $chuyenxe = [];
+        $xe = [];
+        $chucvu = [];
+        foreach ($taixe as $key => $value) {
+            $get = DB::table('taixe')->join('chuyenxe', 'chuyenxe.macx', '=', 'taixe.macx')
+                ->join('tuyen', 'chuyenxe.mat', '=', 'tuyen.mat')
+                ->join('xe', 'chuyenxe.maxe', '=', 'xe.maxe')->where('taixe.mand', $value->mand)->first();
+
+            if ($get) {
+
+                $chuyenxe[$key] = $get->diemcuoi;
+                $xe[$key] = $get->maxe . ' - ' . $get->bienso;
+                $chucvu[$key] = $get->vitri;
+            } else
+            {
+
+                $chuyenxe[$key] = null;
+                $xe[$key] = null;
+                $chucvu[$key] = null;
+            }
+        }
+
+        $manager = view('chuhangxe.taixe.dstaixe')
+            ->with('chuyenxe', $chuyenxe)->with('xe', $xe)->with('chucvu', $chucvu)->with('taixe', $taixe);
+        return view('quanly.trangquanly')->with('chuhangxe.taixe.dstaixe', $manager);
     }
     public function view_themtaixe()
     {
         return view('chuhangxe.taixe.themtaixe');
     }
-    public function them_taixe()
+    public function them_taixe(Request $request)
     {
-        Redirect::to('/hx-dstaixe');
+        $mand = Session::get('id');
+        $chu = DB::table('nguoidung')->where('mand', $mand)->first();
+
+        $data = array();
+        $data['hoten'] = $request->hoten;
+        $data['gioitinh'] = $request->gioitinh;
+        $data['ngaysinh'] = $request->ngaysinh;
+        $data['cmnd'] = $request->cmnd;
+        $data['sdt'] = $request->sdt;
+        $data['email'] = $request->email;
+        $data['diachi'] = $request->diachi;
+        $data['hangxe'] = $chu->hangxe;
+        $data['chucvu'] = 4;
+
+        DB::table('nguoidung')->insert($data);
+
+        return Redirect::to('/hx-dstaixe');
     }
-    public function view_suataixe()
+    public function view_suataixe($mand)
     {
-        return view('chuhangxe.taixe.suataixe');
+        $thongtin = DB::table('nguoidung')->where('mand', $mand)->first();
+        return view('chuhangxe.taixe.suataixe')->with('thongtin', $thongtin);
     }
     public function sua_taixe()
     {
-        Redirect::to('/hx-dstaixe');
+        return Redirect::to('/hx-dstaixe');
     }
-    public function xoa_taixe()
+    public function xoa_taixe($mand)
     {
-        Redirect::to('/hx-dstaixe');
+        DB::table('nguoidung')->where('mand', $mand)->delete();
+        return Redirect::to('/hx-dstaixe');
     }
 }

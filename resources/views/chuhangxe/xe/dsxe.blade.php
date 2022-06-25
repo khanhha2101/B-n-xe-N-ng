@@ -36,48 +36,28 @@
                         <th>Mã số xe</th>
                         <th>Biển số</th>
                         <th>Loại xe</th>
-                        <th>Số chỗ</th>
+                        <th>Số tầng</th>
                         <th>Tuyến đang chạy</th>
-                        <th style="width:135px;"></th>
+                        <th style="width:165px;"></th>
                     </tr>
                 </thead>
                 <tbody id="listBanDoc">
+                    <?php $i = 1; ?>
+                    @foreach($xe as $key => $value)
                     <tr>
-                        <td>1</td>
-                        <td>XE002</td>
-                        <td>43C-123456</td>
-                        <td>Xe ghế ngồi</td>
-                        <td>20</td>
-                        <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                        <td><button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuaxe')}}"> Chi tiết </a></button></td>
+                        <td>{{$i}}</td>
+                        <td>XE{{$value->maxe}}</td>
+                        <td>{{$value->bienso}}</td>
+                        <td>{{$value->phanloai}}</td>
+                        <td>{{$value->sotang}}</td>
+                        <td>@if($tuyen[$key] != " ") Đà Nẵng đi {{$tuyen[$key]}} @endif </td>
+                        <td>
+                            <button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuaxe/'.$value->maxe)}}"> Chi tiết </a></button>
+                            @if($tuyen[$key] == " ")<button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/hx-xoaxe/'.$value->maxe)}}">Xóa</a></button>  @endif
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>XE005</td>
-                        <td>43C-123456</td>
-                        <td>Xe ghế ngồi</td>
-                        <td>20</td>
-                        <td>Bến xe trung tâm Đà Nẵng đi Sài Gòn</td>
-                        <td><button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuaxe')}}"> Chi tiết </a></button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>XE007</td>
-                        <td>43C-123456</td>
-                        <td>Xe ghế ngồi</td>
-                        <td>20</td>
-                        <td>Bến xe trung tâm Đà Nẵng đi Hải Phòng</td>
-                        <td><button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuaxe')}}"> Chi tiết </a></button></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>XE008</td>
-                        <td>43C-123456</td>
-                        <td>Xe ghế ngồi</td>
-                        <td>20</td>
-                        <td>Bến xe trung tâm Đà Nẵng đi Quảng Nam</td>
-                        <td><button class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/hx-viewsuaxe')}}"> Chi tiết </a></button></td>
-                    </tr>
+                    <?php $i++ ?>
+                    @endforeach
                 </tbody>
             </table>
         </div>

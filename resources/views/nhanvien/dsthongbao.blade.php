@@ -19,9 +19,9 @@
                 <select class="input-sm form-control w-sm inline v-middle" onchange="location = '{{URL::to('/listbandoc-show/')}}' + '/' + this.value;">
                     <option></option>
                     <option value="0">Tất cả</option>
-					
-					<option value="..">..</option>
-					
+
+                    <option value="..">..</option>
+
                 </select>
                 <button class="btn btn-sm btn-default">Apply</button>
             </div>
@@ -52,7 +52,43 @@
                         <td>1</td>
                         <td>CX002 - Đà Nẵng -> Hà Nội</td>
                         <td>01/06/2022</td>
-                        <td>Nguyễn Văn A</td>   
+                        <td>Nguyễn Văn A</td>
+                        <td>
+
+                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/edit-bandoc/')}}"> Xem </a></button>
+
+                            <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/del-bandoc/')}}">Xóa</a></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>CX002 - Đà Nẵng -> Hà Nội</td>
+                        <td>01/06/2022</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>
+
+                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/edit-bandoc/')}}"> Xem </a></button>
+
+                            <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/del-bandoc/')}}">Xóa</a></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>CX002 - Đà Nẵng -> Hà Nội</td>
+                        <td>01/06/2022</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>
+
+                            <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/edit-bandoc/')}}"> Xem </a></button>
+
+                            <button type="submit" class="btn" style="background-color: #FE8A8A;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{URL::to('/del-bandoc/')}}">Xóa</a></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>CX002 - Đà Nẵng -> Hà Nội</td>
+                        <td>01/06/2022</td>
+                        <td>Nguyễn Văn A</td>
                         <td>
 
                             <button type="submit" class="btn" style="background-color: #FDDC69;"><a href="{{URL::to('/edit-bandoc/')}}"> Xem </a></button>

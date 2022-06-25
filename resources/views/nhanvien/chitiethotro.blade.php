@@ -16,7 +16,7 @@
                             <input type="text" class="form-control" name="them_hoten" value="CX002 - Đà Nẵng -> Hà Nội">
                         </div>
                         <div class="form-group">
-                            <label>Tài xếỉ</label>
+                            <label>Tài xế</label>
                             <input type="text" class="form-control" name="them_diachi" value="Nguyễ Văn A">
                         </div>
                         <div class="form-group">

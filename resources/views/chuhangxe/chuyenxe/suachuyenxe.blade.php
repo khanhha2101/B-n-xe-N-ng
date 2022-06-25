@@ -16,13 +16,13 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                Đăng ký chuyến xe
+                Thông tin chuyến xe
             </header>
             <div class="panel-body">
                 <div class="position-center">
-                    <form role="form" action="{{URL::to('/hx-themchuyen')}}" method="post">
+                    <form role="form" action="{{URL::to('/hx-suachuyen')}}" method="post">
                         {{csrf_field()}}
-
+                        <input type="hidden" value="{{$chuyenxe->macx}}" name="macx">
                         <!-- thông tin xe -->
                         <div class="row">
                             <h4 class="tieude" style="margin-top: 0px;">Thông tin xe</h4>
@@ -178,7 +178,6 @@
                         <button type="submit" class="btn btn-info" style="margin-top: 20px;">Cập nhật</button>
 
                     </form>
-                    <button type="submit" class="btn btn-info" style="margin-top: 10px;">Xoá</button>
                 </div>
             </div>
         </section>

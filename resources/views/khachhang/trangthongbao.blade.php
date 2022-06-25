@@ -5,10 +5,19 @@
         font-size: 12px;
         color: #9B9B9B;
     }
+
     .thongbao {
         height: 30px;
         padding-top: 5px;
         border-radius: 3px;
+    }
+
+    .box-tb2 {
+        margin-top: 30px;
+        padding: 5px 5px 2px 10px;
+        border-radius:  3px ;
+        /* border: solid 1px #D9D9D9; */
+        /* -webkit-box-shadow: 2px 5px 10px 2px #d4d1d4; */
     }
 </style>
 <div class="mainhd" style="padding-top: 20px; background-color: white; margin-bottom: 50px;">
@@ -33,27 +42,33 @@
         </div>
     </div>
 
-    <div class="row box-tb" >
+    
+
+    <div class="row box-tb2">
         <h4 class="thongbao">Thông báo abc</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
-    <div class="row box-tb" >
+    <div class="row" style="height: 3px; background-color: #024F30; margin-top: 10px;"></div>
+    <div class="row box-tb2">
         <h4 class="thongbao">Thông báo abc</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
-    <div class="row box-tb">
+    <div class="row" style="height: 3px; background-color: #024F30; margin-top: 10px;"></div>
+    <div class="row box-tb2">
         <h4 class="thongbao">Thông báo abc</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
-    <div class="row box-tb" >
+    <div class="row" style="height: 3px; background-color: #024F30; margin-top: 10px;"></div>
+    <div class="row box-tb2">
         <h4 class="thongbao">Thông báo abc</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>
     </div>
-    <div class="row box-tb" >
+    <div class="row" style="height: 3px; background-color: #024F30; margin-top: 10px;"></div>
+    <div class="row box-tb2">
         <h4 class="thongbao">Thông báo abc</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque inventore itaque dignissimos labore quaerat natus commodi accusamus! Dicta expedita, dolor officiis, soluta ad nam impedit tenetur quis perspiciatis minus magni.</p>
         <p class="chunho">01/06/2022</p>

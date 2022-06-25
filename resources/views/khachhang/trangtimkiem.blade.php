@@ -38,13 +38,13 @@
             <button class="btn-xanh"><a href="{{URL::to('/trangtimkiem')}}" class="timkiem">Tìm chuyến</a></button>
         </div>
     </div>
-    <div class="row" style="margin-top: 15px; margin-left: -25px;">
+    <div class="row" style="margin-top: 20px; margin-left: -25px; margin-bottom: 5px;">
         <div class="col-md-9">
             <h4 style="font-weight: bold; font-size: 21px; margin-bottom: 15px;">Chuyến xe đi Hà Nội ngày 16/06/2022</h4>
         </div>
         <div class="col-md-3" style="text-align: right;">
-            <!-- <p style="text-align: right; font-size: 16px;" class="chunho">Sắp xếp</p> -->
-
+            <!-- <p style="text-align: right; font-size: 16px;" class="chunho">Lọc</p> -->
+            <a href="#"><img src="{{asset('public/frontend/img/loc3.png')}}" alt=""></a>
         </div>
     </div>
 
@@ -102,7 +102,7 @@
                         <td>07:00 - 13:30</td>
                         <td>365.000₫</td>
                         <td>
-                            <button class="btn-xanh">Chọn ngay</button>
+                            <button class="btn-xanh" onclick="hien()">Chọn ngay</button>
                             <!-- <button class="btn-tim">Xem</button> -->
                         </td>
                     </tr>
@@ -222,68 +222,57 @@
                 <img src="{{asset('public/frontend/img/volang.png')}}" alt="" style="margin-bottom: 15px;">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c1.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c2.png')}}" alt="">
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c11d.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c12.png')}}" alt="">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c3.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c4.png')}}" alt="">
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c13.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c14d.png')}}" alt="">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c5.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c6.png')}}" alt="">
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c15.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c16d.png')}}" alt="">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c7.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c8.png')}}" alt="">
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c17.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c18.png')}}" alt="">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c9.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c10.png')}}" alt="">
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                    </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-4">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
-                        <img src="{{asset('public/frontend/img/chair.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c19.png')}}" alt="">
+                        <img src="{{asset('public/frontend/img/c20.png')}}" alt="">
                     </div>
                 </div>
             </div>
@@ -292,15 +281,15 @@
                 <hr style="margin-top: -10px;">
                 <div class="form-group" style="padding-right: 20px;">
                     <p style="font-size: 13px; display: inline">Họ tên</p>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" value="Nguyễn Văn A">
                 </div>
                 <div class="form-group" style="padding-right: 20px;">
                     <p style="font-size: 13px; display: inline">Số điện thoại</p>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" value="0395486621">
                 </div>
                 <div class="form-group" style="padding-right: 20px;">
                     <p style="font-size: 13px; display: inline">CMND/CCCD</p>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" value="209574882">
                 </div>
                 <div class="form-group" style="padding-right: 20px;">
                     <p style="font-size: 13px; display: inline">Ghi chú</p>

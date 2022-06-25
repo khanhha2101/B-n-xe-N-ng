@@ -154,6 +154,10 @@ $quyen = Session::get('quyen');
                 </div>
                 @if($quyen == 2)
                 <div class="tab-item">
+                    <i class="tab-icon fas fa-code"></i>
+                    Vé xe
+                </div>
+                <div class="tab-item">
                     <i class="tab-icon fas fa-plus-circle"></i>
                     Đăng ký hãng xe
                 </div>
@@ -212,17 +216,21 @@ $quyen = Session::get('quyen');
                         </div> -->
                     <div class="row" style="margin-top: 30px;">
                         <div class="col-md-6">
-                            <input type="text" class="form-control inputText" placeholder="Họ tên">
-                            <input type="text" class="form-control inputText" placeholder="Giới tính">
-                            <input type="date" class="form-control inputText" placeholder="Ngày sinh">
-                            <input type="text" class="form-control inputText" placeholder="Địa chỉ">
+                            <input type="text" class="form-control inputText" placeholder="Họ tên" value="Nguyễn Thị Khánh Hạ">
+                            <select name="" id="" class="form-control inputText">
+                                <option value="" selected>Nữ</option>
+                                <option value="" >Nam</option>
+                                <option value="" >Khác</option>
+                            </select>
+                            <input type="text" class="form-control inputText" placeholder="Ngày sinh" value="20/10/2001">
+                            <input type="text" class="form-control inputText" placeholder="Địa chỉ" value="02 Thanh Sơn, Thanh Bình, Hải Châu, Đà Nẵng">
 
                         </div>
                         <!-- <div class="col-md-1"></div> -->
                         <div class="col-md-6">
-                            <input type="text" class="form-control inputText" placeholder="Số điện thoại">
-                            <input type="text" class="form-control inputText" placeholder="Email">
-                            <input type="text" class="form-control inputText" placeholder="CMND/CCCD">
+                            <input type="text" class="form-control inputText" placeholder="Số điện thoại" value="0485628735">
+                            <input type="text" class="form-control inputText" placeholder="Email" value="khanhha@gmail.com">
+                            <input type="text" class="form-control inputText" placeholder="CMND/CCCD" value="395810485">
                             @if($quyen == 4 || $quyen == 3)
                             <input type="text" class="form-control inputText" placeholder="Hãng xe">
                             @endif
@@ -230,7 +238,7 @@ $quyen = Session::get('quyen');
                     </div>
                     @if($quyen == 4)
                     <!-- tài xế -->
-                    <div class="row" style="margin-top: 30px;">
+                    <!-- <div class="row" style="margin-top: 30px;">
                         <div class="col-md-2">
                             <p>Giấy phép lái xe</p>
                             <img class="anhtaixe" src="{{asset('public/frontend/img/imganh.png')}}" alt="">
@@ -239,7 +247,7 @@ $quyen = Session::get('quyen');
                             <p>Bảo hiểm y tế</p>
                             <img class="anhtaixe" src="{{asset('public/frontend/img/imganh.png')}}" alt="">
                         </div>
-                    </div>
+                    </div> -->
                     @endif
                     <div class="row" style="margin-top: 50px;">
                         <div class="col-md-2">
@@ -249,6 +257,43 @@ $quyen = Session::get('quyen');
                 </div>
                 <!-- đăng ký hãng xe -->
                 @if($quyen == 2)
+                <div class="tab-pane">
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã chuyến</th>
+                                    <th>Tuyến đường</th>
+                                    <th>Điểm khởi hành</th>
+                                    <th>Điểm kết thúc</th>
+                                    <th>Ngày đi</th>
+                                    <th>Thời gian</th>
+                                    <th>Số ghế</th>
+                                    <th>Giá vé</th>
+                                    <th style="width:90px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="listBanDoc">
+                                <tr>
+                                    <td>1</td>
+                                    <td>CX002</td>
+                                    <td>Đà Nẵng đi Hà Nội</td>
+                                    <td>Bến xe khách Đà Nẵng</td>
+                                    <td>Bến xe A</td>
+                                    <td>16/06/2022</td>
+                                    <td>8h - 14h</td>
+                                    <td>12</td>
+                                    <td>365.000₫</td>
+                                    <td>
+                                        <button class="btn-tim">Huỷ vé</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
                 <div class="tab-pane">
                     <div class="row">
                         <div class="col-md-6">
@@ -509,58 +554,58 @@ $quyen = Session::get('quyen');
                 </div>
                 @endif
 
+
+                <!-- tìa xế -->
                 @if($quyen == 4)
                 <!-- lịch làm việc -->
                 <div class="tab-pane">
+
                     <div class="table-responsive">
+                        <h4 style="background-color: #89B7C1; padding: 10px; color: white;">Thông tin chuyến xe</h4>
                         <table class="table table-striped b-t b-light">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Mã số chuyến</th>
+                                    <th>Mã chuyến</th>
                                     <th>Tuyến đường</th>
-                                    <th>Thứ</th>
+                                    <th>Điểm khởi hành</th>
+                                    <th>Điểm kết thúc</th>
+                                    <th>Lịch trình</th>
                                     <th>Thời gian</th>
+                                    <th>Giá vé</th>
                                     <th>Chức vụ</th>
-                                    <th style="width:135px;"></th>
                                 </tr>
                             </thead>
                             <tbody id="listBanDoc">
                                 <tr>
-                                    <td>1</td>
                                     <td>CX002</td>
-                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                                    <td>Thứ 2</td>
+                                    <td>Đà Nẵng đi Hà Nội</td>
+                                    <td>Bến xe khách Đà Nẵng</td>
+                                    <td>Bến xe Ah</td>
+                                    <td>Thứ 2, 4, 6</td>
                                     <td>8h - 14h</td>
+                                    <td>300,000đ</td>
                                     <td>Lái chính</td>
-                                    <td><button class="btn-xanh">Chi tiết</button></td>
                                 </tr>
+                            </tbody>
+                        </table>
+                        <h4 style="background-color: #89B7C1; padding: 10px; margin-top: 10px; color: white;">Thông tin xe</h4>
+                        <table class="table table-striped b-t b-light">
+                            <thead>
                                 <tr>
-                                    <td>2</td>
-                                    <td>CX005</td>
-                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                                    <td>Thứ 4</td>
-                                    <td>8h - 14h</td>
-                                    <td>Lái chính</td>
-                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                    <th>Mã số xe</th>
+                                    <th>Biển số xe</th>
+                                    <th>Loại xe</th>
+                                    <th>Số tầng</th>
+                                    <th>Vị trí đỗ</th>
                                 </tr>
+                            </thead>
+                            <tbody id="listBanDoc">
                                 <tr>
-                                    <td>3</td>
-                                    <td>CX006</td>
-                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                                    <td>Thứ 5</td>
-                                    <td>8h - 14h</td>
-                                    <td>Lái chính</td>
-                                    <td><button class="btn-xanh">Chi tiết</button></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>CX008</td>
-                                    <td>Bến xe trung tâm Đà Nẵng đi Hà Nội</td>
-                                    <td>Thứ 7</td>
-                                    <td>8h - 14h</td>
-                                    <td>Lái chính</td>
-                                    <td><button class="btn-xanh">Chi tiết</button></td>
+                                    <td>X002</td>
+                                    <td>43A1-57385</td>
+                                    <td>Ghế ngồi</td>
+                                    <td>1</td>
+                                    <td>VTA01</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -570,12 +615,7 @@ $quyen = Session::get('quyen');
                 <div class="tab-pane">
                     <div class="row">
                         <div class="col-md-6">
-                            <select class="form-control inputText">
-                                <option selected value="0"></option>
-                                <option value="0">CX001 - Đà Nẵng -> Hà Nội</option>
-                                <option value="1">CX002 - Đà Nẵng -> Hải Phòng</option>
-                                <option value="1">CX003 - Đà Nẵng -> Sài Gòn</option>
-                            </select>
+                            <input type="text" class="form-control inputText" value="CX02 - Đà Nẵng đi Hà Nội">
                             <input type="text" class="form-control inputText" placeholder="Tên sự cố">
                             <input type="text" class="form-control inputText" placeholder="Chi tiết sự cố">
                         </div>

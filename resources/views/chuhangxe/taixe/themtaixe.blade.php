@@ -9,15 +9,11 @@
             </header>
             <div class="panel-body">
                 <div class="position-center">
-                    <form role="form" action="{{URL::to('/sua-thongtin')}}" method="post">
+                    <form role="form" action="{{URL::to('/hx-themtaixe')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label>Họ tên</label>
                             <input type="text" class="form-control" name="hoten" value="">
-                        </div>
-                        <div class="form-group">
-                            <label>Hãng xe</label>
-                            <input type="text" class="form-control" name="diachi" value="">
                         </div>
                         <div class="form-group">
                             <label>Giới tính</label>
@@ -41,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label>Ngày sinh</label>
-                            <input type="date" class="form-control" name="ngaysinh" value="
+                            <input type="date" class="form-control" name="ngaysinh" >
                         <div class="form-group">
                             <label>Email</label>
                             <input type="email" class="form-control" name="email" value="">

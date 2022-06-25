@@ -44,8 +44,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-   <!-- ajax -->
-   <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <!-- ajax -->
+    <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 
     <style>
         * {
@@ -90,7 +90,7 @@ $quyen = Session::get('quyen');
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
-                            <li><a href="#"><i class=" fa fa-suitcase"></i>Cá nhân</a></li>
+                            <li><a href="{{URL::to('/')}}"><i class=" fa fa-suitcase"></i>Trang chủ</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
                             <li><a href="{{URL::to('/dangxuat')}}"><i class="fa fa-key"></i>Đăng xuất</a></li>
                         </ul>
@@ -109,10 +109,10 @@ $quyen = Session::get('quyen');
                 <!-- sidebar menu start-->
                 <div class="leftside-navigation">
                     <ul class="sidebar-menu" id="nav-accordion">
-                        @if($quyen == 7 || $quyen == 8)
+                        @if($quyen == 5 || $quyen == 6 || $quyen == 7 || $quyen == 8)
                         <li>
                             <a class="active" href="{{URL::to('/trangchinh')}}">
-                                <i class="fa fa-dashboard"></i>
+                                <i class="fa fa-suitcase"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
@@ -168,7 +168,7 @@ $quyen = Session::get('quyen');
                         <li>
                             <a href="{{URL::to('/dshotro')}}">
                                 <i class="fa fa-th"></i>
-                                <span>Yêu cầu hỗ trợ</span>
+                                <span>Danh sách sự cố</span>
                             </a>
                         </li>
                         @endif
@@ -181,15 +181,15 @@ $quyen = Session::get('quyen');
                                 <span>Xe trong bến</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('/dangthongbao')}}">Danh sách xe</a></li>
-                                <li><a href="{{URL::to('/dsthongbao')}}">Xác nhận xe vào bến</a></li>
-                                <li><a href="{{URL::to('/dsthongbao')}}">Xác nhận xe xuất bến</a></li>
+                                <li><a href="{{URL::to('/nv-dsxe')}}">Danh sách xe</a></li>
+                                <li><a href="{{URL::to('/xevao')}}">Xác nhận xe vào bến</a></li>
+                                <li><a href="{{URL::to('/xera')}}">Xác nhận xe xuất bến</a></li>
                             </ul>
                         </li>
                         @endif
 
                         <!-- quản lý -->
-                        @if($quyen == 7)
+                        @if($quyen == 7 || $quyen == 8)
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-th"></i>
@@ -210,25 +210,31 @@ $quyen = Session::get('quyen');
                                 <li><a href="{{URL::to('/view-themtuyen')}}">Thêm tuyến</a></li>
                             </ul>
                         </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-bar-chart-o"></i>
-                                <span>Thống kê</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{URL::to('/thongke-sach/0&0')}}">Thống kê sách</a></li>
-                                <li><a href="{{URL::to('/thongke-bandoc/0&0')}}">Thống kê bạn đọc</a></li>
-                            </ul>
-                        </li>
                         @endif
 
-
+                        @if($quyen == 7 || $quyen == 6 || $quyen == 5 || $quyen == 4 || $quyen == 3)
                         <li>
                             <a href="{{URL::to('/trangcanhan')}}">
                                 <i class="fa fa-user"></i>
                                 <span>Thông tin cá nhân</span>
                             </a>
                         </li>
+                        @endif
+
+                        <!-- admin -->
+                        @if($quyen == 8)
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-user"></i>
+                                <span>Tài khoản người dùng</span>
+                            </a>
+                            <ul class="sub">
+                            <li><a href="{{URL::to('/them-taikhoan')}}">Thêm tài khoản</a></li>
+                            <li><a href="{{URL::to('/taikhoannguoidung')}}">Danh sách tài khoản</a></li>
+                            </ul>
+                        </li>
+                        @endif
+
                         <li>
                             <a href="{{URL::to('/dangxuat')}}">
                                 <i class="fa fa-cog"></i>

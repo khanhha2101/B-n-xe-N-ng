@@ -9,23 +9,19 @@
             </header>
             <div class="panel-body">
                 <div class="position-center">
-                    <form role="form" action="{{URL::to('/sua-thongtin')}}" method="post">
+                    <form role="form" action="{{URL::to('/hx-themxe')}}" method="post">
                         {{csrf_field()}}
                         <div class="row">
                             <!-- thông tin xe -->
                             <div class="col-md-6">
                                 <h4 style="margin-bottom: 15px; margin-top: 15px;">Thông tin xe</h4>
                                 <div class="form-group">
-                                    <p style="display: inline;">Mã xe</p>
-                                    <input type="text" class="form-control" name="hoten" value="">
-                                </div>
-                                <div class="form-group">
                                     <p>Biển số xe</p>
-                                    <input type="text" class="form-control" name="hoten" value="">
+                                    <input type="text" class="form-control" name="bienso" value="">
                                 </div>
                                 <div class="form-group">
                                     <p style="display: inline;">Loại xe</p>
-                                    <select class="form-control">
+                                    <select class="form-control" name="phanloai">
                                         <option>Ghế ngồi</option>
                                         <option>Giường nằm</option>
                                     </select>
@@ -36,11 +32,11 @@
                                 </div>
                                 <div class="form-group">
                                     <p style="display: inline;">Số chỗ</p>
-                                    <input type="text" class="form-control" name="hoten" value="">
+                                    <input type="number" class="form-control" name="socho[]" value="">
                                 </div>
                                 <div class="form-group">
                                     <p style="display: inline;">Số ghế trên 1 hàng</p>
-                                    <input type="text" class="form-control" name="hoten" value="">
+                                    <input type="number" class="form-control" name="soghe[]" value="">
                                 </div>
                                 <div class="form-group">
                                     <label >Tầng 2</label>
@@ -48,11 +44,11 @@
                                 </div>
                                 <div class="form-group">
                                     <p style="display: inline;">Số chỗ</p>
-                                    <input type="text" class="form-control" name="hoten" value="">
+                                    <input type="number" class="form-control" name="socho[]" value="">
                                 </div>
                                 <div class="form-group">
                                     <p style="display: inline;">Số ghế trên 1 hàng</p>
-                                    <input type="text" class="form-control" name="hoten" value="">
+                                    <input type="number" class="form-control" name="soghe[]" value="">
                                 </div>
 
                             </div>
@@ -128,6 +124,7 @@
                                 </div>
 
                             </div>
+                            <!-- <button class="btn btn-info" style="margin-top: 15px;">Kiểm tra</button> -->
                         </div>
 
 

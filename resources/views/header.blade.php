@@ -1,7 +1,7 @@
 <style>
     .containerhd {
         background-color: #D2FEE1;
-        height: 100px;
+        height: 130px;
         color: white;
     }
 
@@ -14,7 +14,7 @@
     .iconlogo {
         width: 60px;
         height: 60px;
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
     ul {
@@ -45,18 +45,26 @@ $quyen = Session::get('quyen');
                 <img src="{{asset('public/frontend/img/iconlogo.png')}}" alt="" class="iconlogo">
             </div>
             <div class="col-md-6">
-                <h3 style="color: #024751; font-weight: bold; margin-top: 25px; margin-left: -20px;">BẾN XE KHÁCH ĐÀ NẴNG</h3>
-                <p style="color: #024751; font-size: 18px; margin-top: -5px; margin-left: -20px;">185 Tôn Đức Thắng, Liên Chiểu, Thành phố Đà Nẵng</p>
+                <h3 style="color: #024751; font-weight: bold; margin-top: 35px; margin-left: -20px;">BẾN XE KHÁCH ĐÀ NẴNG</h3>
+                <p style="color: #024751; font-size: 18px; margin-top: 0px; margin-left: -20px;">185 Tôn Đức Thắng, Liên Chiểu, Thành phố Đà Nẵng</p>
             </div>
             <div class="col-md-5">
                 @if($id)
-                <ul style="margin-top: 50px; margin-left: 20px;">
+                <ul style="margin-top: 60px; margin-left: 20px;">
                     <li class="lihd"><a class="menuhd" href="{{URL::to('/')}}">Trang chủ</a></li>
                     <li class="lihd"><a class="menuhd" href="{{URL::to('/trangthongbao')}}">Thông báo</a></li>
                     <li class="lihd"><a class="menuhd" href="#news">Giới thiệu</a></li>
                     <li class="lihd" style="margin-top: 7px; margin-left: 50px;">
+                        <?php
+                        if ($quyen == 3)
+                            $url = 'hx-dschuyen';
+                        else if($quyen == 5 || $quyen == 6 || $quyen == 7 || $quyen == 8)
+                            $url = 'trangchinh';
+                        else
+                            $url = 'canhan';
+                        ?>
                         <div class="row" style="color: #024751;">
-                            Chào bạn<a class="menuhd" style="display: inline;" href="{{URL::to('/canhan')}}"><img src="{{asset('public/frontend/img/iconuser.png')}}" style="height: 30px; width: 30px;" alt=""></a>
+                            Chào bạn<a class="menuhd" style="display: inline;" href="{{URL::to('/'.$url)}}"><img src="{{asset('public/frontend/img/iconuser.png')}}" style="height: 30px; width: 30px;" alt=""></a>
                         </div>
                     </li>
                 </ul>

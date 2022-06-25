@@ -25,6 +25,7 @@ Route::get('/canhan', 'KhachHangController@canhan');
 Route::get('/dangxuat', 'TrangChuController@dangxuat'); 
 Route::get('/trangthongbao', 'TrangChuController@trangthongbao'); 
 Route::get('/trangtimkiem', 'TrangChuController@trangtimkiem'); 
+Route::get('/trangdatve', 'TrangChuController@trangdatve'); 
 /*
 |----------------------------KHÁCH HÀNG-----------------------------------
 */
@@ -73,6 +74,12 @@ Route::get('/xem-chuyenxe/{macx}&{mand}', 'QuanLyController@xem_chuyenxe');
  //thống kê
 Route::post('/thongke', 'QuanLyController@thongke'); 
 
+
+ //admin
+ Route::get('/taikhoannguoidung', 'QuanLyController@taikhoan');
+ Route::get('/them-taikhoan', 'QuanLyController@them_taikhoan');
+ Route::get('/sua-taikhoan/{mand}', 'QuanLyController@sua_taikhoan');
+
 /*
 |----------------------------QUẢN LÝ-----------------------------------
 */
@@ -90,7 +97,7 @@ Route::get('/hx-viewthemchuyen', 'HangXeController@view_themchuyenxe');
 Route::post('/hx-themchuyen', 'HangXeController@them_chuyenxe');
 
 Route::get('/hx-viewsuachuyen/{macx}', 'HangXeController@view_suachuyenxe');
-Route::post('/hx-suachuyen/{macx}', 'HangXeController@sua_chuyenxe');
+Route::post('/hx-suachuyen', 'HangXeController@sua_chuyenxe');
 
 Route::get('/hx-xoachuyen/{macx}', 'HangXeController@xoa_chuyenxe');
 
@@ -105,10 +112,10 @@ Route::get('/hx-dstaixe', 'HangXeController@dstaixe');
 Route::get('/hx-viewthemtaixe', 'HangXeController@view_themtaixe'); 
 Route::post('/hx-themtaixe', 'HangXeController@them_taixe');
 
-Route::get('/hx-viewsuataixe', 'HangXeController@view_suataixe');
+Route::get('/hx-viewsuataixe/{mand}', 'HangXeController@view_suataixe');
 Route::post('/hx-suataixe', 'HangXeController@sua_taixe');
 
-Route::get('/hx-xoataixe', 'HangXeController@xoa_taixe');
+Route::get('/hx-xoataixe/{mand}', 'HangXeController@xoa_taixe');
 
 
 //xe
@@ -117,10 +124,10 @@ Route::get('/hx-dsxe', 'HangXeController@dsxe');
 Route::get('/hx-viewthemxe', 'HangXeController@view_themxe'); 
 Route::post('/hx-themxe', 'HangXeController@them_xe');
 
-Route::get('/hx-viewsuaxe', 'HangXeController@view_suaxe');
+Route::get('/hx-viewsuaxe/{maxe}', 'HangXeController@view_suaxe');
 Route::post('/hx-suaxe', 'HangXeController@sua_xe');
 
-Route::get('/hx-xoaxe', 'HangXeController@xoa_xe');
+Route::get('/hx-xoaxe/{maxe}', 'HangXeController@xoa_xe');
 /*
 |----------------------------CHỦ HÃNG XE-----------------------------------
 */
@@ -136,6 +143,11 @@ Route::get('/dangthongbao', 'QuanLyController@dangthongbao');
 Route::get('/dsthongbao', 'QuanLyController@dsthongbao'); 
 Route::get('/dshotro', 'QuanLyController@dshotro');
 Route::get('/chitiethotro', 'QuanLyController@chitiethotro');
+
+
+Route::get('/nv-dsxe', 'QuanLyController@nv_dsxe'); 
+Route::get('/xevao', 'QuanLyController@xevao');
+Route::get('/xera', 'QuanLyController@xera');
 /*
 |----------------------------NHÂN VIÊN-----------------------------------
 */
